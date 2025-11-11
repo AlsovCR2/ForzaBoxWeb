@@ -1,0 +1,609 @@
+---
+import historiaImg from '../assets/IMG HISTORIA.webp';
+import misionImg from '../assets/IMG MISION.webp';
+import visionImg from '../assets/IMG VISION.webp';
+---
+
+<section id="about">
+    <div class="about-container">
+        <!-- Encabezado -->
+        <div class="about-header">
+            <span class="section-badge">Conoce ForzaBox</span>
+            <h2>Sobre Nosotros</h2>
+            <p class="about-subtitle">Conoce más sobre nosotros y lo que hacemos.</p>
+        </div>
+
+        <!-- Timeline Container -->
+        <div class="timeline-container">
+            <!-- Item 1: Historia (Izquierda) -->
+            <div class="timeline-item" data-aos="fade-up">
+                <div class="timeline-number">01</div>
+                <div class="timeline-content left">
+                    <div class="timeline-image">
+                        <img src={historiaImg.src} alt="Historia ForzaBox" />
+                    </div>
+                    <div class="timeline-text">
+                        <h3>Historia</h3>
+                        <p>
+                            Forza Box es un centro de acondicionamiento físico fundado en el año 2021, ubicado en el 
+                            corazón de Cervantes, en el cantón Alvarado de la provincia de Cartago, Costa Rica. 
+                            Su principal enfoque es el entrenamiento funcional y el CrossFit, ofreciendo tanto clases 
+                            personalizadas como sesiones grupales, dirigidas a personas con distintos niveles de 
+                            condición física. Además de sus servicios regulares, el centro participa activamente en 
+                            diversas competencias deportivas a nivel nacional, lo que fortalece su posicionamiento 
+                            dentro del ámbito fitness en el país.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 2: Misión (Derecha) -->
+            <div class="timeline-item" data-aos="fade-up" data-aos-delay="100">
+                <div class="timeline-number">02</div>
+                <div class="timeline-content right">
+                    <div class="timeline-text">
+                        <h3>Misión</h3>
+                        <p>
+                            Forza Box transforma vidas a través del entrenamiento funcional y CrossFit personalizado,
+                             creando experiencias únicas que conectan cuerpo, mente y comunidad. 
+                             Ofrecemos servicios profesionales integrales, 
+                             desde clases grupales hasta productos especializados, 
+                             respaldados por un equipo apasionado que hace del fitness una experiencia humana, 
+                             motivadora y accesible para todos
+                        </p>
+                    </div>
+                    <div class="timeline-image">
+                        <img src={misionImg.src} alt="Misión ForzaBox" />
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 3: Visión (Izquierda) -->
+            <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
+                <div class="timeline-number">03</div>
+                <div class="timeline-content left">
+                    <div class="timeline-image">
+                        <img src={visionImg.src} alt="Visión ForzaBox" />
+                    </div>
+                    <div class="timeline-text">
+                        <h3>Visión</h3>
+                        <p>
+                            Ser el centro de transformación física y comunitaria líder en Cervantes de Alvarado para 2027, 
+                            donde cada persona descubre su potencial máximo a través del entrenamiento funcional, 
+                            construyendo la comunidad más saludable y activa de la región
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    #about {
+        padding: var(--spacing-xl) 0 var(--spacing-lg) 0;
+        background: linear-gradient(180deg, #FFFFFF 0%, #F8F9FA 100%);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .about-container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 var(--spacing-md);
+    }
+
+    /* ==================== HEADER ==================== */
+    .about-header {
+        text-align: center;
+        margin-bottom: 4rem;
+    }
+
+    .section-badge {
+        display: inline-block;
+        padding: 0.5rem 1.25rem;
+        background: var(--cyan-transparent);
+        color: var(--primary-cyan);
+        border-radius: var(--radius-full);
+        font-size: 0.875rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        margin-bottom: 1.5rem;
+        border: 1px solid rgba(0, 229, 204, 0.2);
+    }
+
+    .about-header h2 {
+        font-size: clamp(2rem, 5vw, 3rem);
+        color: var(--dark-accent);
+        margin-bottom: 1rem;
+        font-weight: 800;
+        position: relative;
+        display: inline-block;
+    }
+
+    .about-header h2::after {
+        content: '';
+        position: absolute;
+        bottom: -0.5rem;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 4px;
+        background: linear-gradient(90deg, var(--primary-cyan), var(--cyan-dark));
+        border-radius: 2px;
+    }
+
+    .about-subtitle {
+        font-size: clamp(1rem, 2.5vw, 1.2rem);
+        color: var(--gray-dark);
+        line-height: 1.6;
+        max-width: 700px;
+        margin: 0 auto;
+    }
+
+    /* ==================== TIMELINE ==================== */
+    .timeline-container {
+        position: relative;
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+
+    /* Timeline Item */
+    .timeline-item {
+        position: relative;
+        margin-bottom: 5rem;
+        opacity: 0;
+        /* Sin transform inicial - será controlado por JavaScript */
+        will-change: transform, opacity;
+    }
+    
+    /* Items impares desde la izquierda */
+    .timeline-item:nth-child(odd) {
+        transform: translateX(-120px);
+    }
+    
+    /* Items pares desde la derecha */
+    .timeline-item:nth-child(even) {
+        transform: translateX(120px);
+    }
+
+    /* Mejorar performance con will-change */
+    .timeline-item * {
+        will-change: auto;
+    }
+
+    /* Número indicador - más pequeño y discreto */
+    .timeline-number {
+        position: absolute;
+        top: -10px;
+        width: 48px;
+        height: 48px;
+        background: linear-gradient(135deg, var(--primary-cyan), var(--cyan-dark));
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1rem;
+        font-weight: 800;
+        color: var(--dark-accent);
+        box-shadow: 0 4px 12px rgba(0, 229, 204, 0.3);
+        z-index: 10;
+        font-family: var(--font-heading);
+        transition: all 0.4s ease;
+    }
+
+    .timeline-number:hover {
+        transform: scale(1.05);
+        box-shadow: 0 6px 20px rgba(0, 229, 204, 0.4);
+    }
+
+    /* Posicionar número en items impares (izquierda) */
+    .timeline-item:nth-child(odd) .timeline-number {
+        left: 20px;
+    }
+
+    /* Posicionar número en items pares (derecha) */
+    .timeline-item:nth-child(even) .timeline-number {
+        right: 20px;
+    }
+
+    /* Content container - transparente y más alto */
+    .timeline-content {
+        display: grid;
+        grid-template-columns: 0.9fr 1.1fr;
+        gap: 3rem;
+        align-items: center;
+        background: transparent;
+        padding: 3rem 0;
+        transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        position: relative;
+        overflow: visible;
+    }
+
+    /* Sin efectos decorativos ni hover */
+    .timeline-content:hover {
+        transform: none;
+    }
+
+    /* Layout izquierda: imagen | texto */
+    .timeline-content.left .timeline-image {
+        order: 1;
+    }
+
+    .timeline-content.left .timeline-text {
+        order: 2;
+        padding-left: 1.5rem;
+    }
+
+    /* Layout derecha: texto | imagen */
+    .timeline-content.right {
+        grid-template-columns: 1.15fr 0.85fr;
+    }
+
+    .timeline-content.right .timeline-text {
+        order: 1;
+        padding-right: 1.5rem;
+        text-align: right;
+    }
+
+    .timeline-content.right .timeline-image {
+        order: 2;
+    }
+
+    /* Imagen - más compacta */
+    .timeline-image {
+        position: relative;
+        border-radius: var(--radius-md);
+        overflow: hidden;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .timeline-image::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(135deg, rgba(0, 229, 204, 0.08), transparent);
+        opacity: 0;
+        transition: opacity 0.5s ease;
+    }
+
+    .timeline-content:hover .timeline-image::after {
+        opacity: 1;
+    }
+
+    .timeline-image:hover {
+        transform: scale(1.02);
+        box-shadow: 0 8px 28px rgba(0, 0, 0, 0.12);
+    }
+
+    .timeline-image img {
+        width: 100%;
+        height: 350px;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .timeline-content:hover .timeline-image img {
+        transform: scale(1.05);
+    }
+
+    /* Texto - más espacioso */
+    .timeline-text h3 {
+        font-size: 2rem;
+        font-weight: 700;
+        color: var(--dark-accent);
+        margin-bottom: 1rem;
+        font-family: var(--font-heading);
+        position: relative;
+        display: inline-block;
+    }
+
+    .timeline-text h3::after {
+        content: '';
+        position: absolute;
+        bottom: -8px;
+        left: 0;
+        width: 0;
+        height: 3px;
+        background: linear-gradient(90deg, var(--primary-cyan), var(--cyan-dark));
+        transition: width 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .timeline-item.aos-animate .timeline-text h3::after {
+        width: 60px;
+    }
+
+    .timeline-content.right .timeline-text h3::after {
+        left: auto;
+        right: 0;
+    }
+
+    .timeline-text p {
+        font-size: 1rem;
+        line-height: 1.8;
+        color: var(--gray-dark);
+        margin: 0;
+        margin-top: 1.5rem;
+    }
+
+    /* ==================== RESPONSIVE ==================== */
+    @media (max-width: 1024px) {
+        .timeline-container {
+            max-width: 850px;
+        }
+
+        .timeline-content {
+            gap: 2.5rem;
+            padding: 2.5rem 0;
+        }
+
+        .timeline-content,
+        .timeline-content.right {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .timeline-content.left .timeline-text {
+            padding-left: 1rem;
+        }
+
+        .timeline-content.right .timeline-text {
+            padding-right: 1rem;
+        }
+
+        .timeline-number {
+            width: 44px;
+            height: 44px;
+            font-size: 0.95rem;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-number {
+            left: 15px;
+        }
+
+        .timeline-item:nth-child(even) .timeline-number {
+            right: 15px;
+        }
+
+        .timeline-image img {
+            height: 300px;
+        }
+
+        .timeline-text h3 {
+            font-size: 1.75rem;
+        }
+
+        .timeline-text p {
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+    }
+
+    @media (max-width: 768px) {
+        #about {
+            padding: var(--spacing-lg) 0;
+        }
+
+        .about-container {
+            padding: 0 var(--spacing-sm);
+        }
+
+        .about-header {
+            margin-bottom: 2.5rem;
+        }
+
+        .about-header h2::after {
+            width: 60px;
+            height: 3px;
+        }
+
+        .timeline-item {
+            margin-bottom: 3rem;
+        }
+
+        /* Todas las animaciones vienen desde la izquierda en móvil también */
+        .timeline-item:nth-child(odd),
+        .timeline-item:nth-child(even) {
+            transform: translateX(-100px);
+        }
+
+        .timeline-item.aos-animate {
+            transform: translateX(0);
+        }
+
+        /* Cambiar a diseño vertical */
+        .timeline-content,
+        .timeline-content.left,
+        .timeline-content.right {
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            padding: 2rem 0 !important;
+        }
+
+        .timeline-content.left .timeline-image,
+        .timeline-content.left .timeline-text,
+        .timeline-content.right .timeline-image,
+        .timeline-content.right .timeline-text {
+            order: initial;
+            padding-left: 0 !important;
+            padding-right: 0 !important;
+            text-align: left !important;
+        }
+
+        /* Imagen arriba, texto abajo */
+        .timeline-content .timeline-image {
+            order: 1;
+        }
+
+        .timeline-content .timeline-text {
+            order: 2;
+        }
+
+        /* Número en la esquina superior izquierda de la card */
+        .timeline-number {
+            width: 42px;
+            height: 42px;
+            font-size: 0.95rem;
+            top: -12px;
+            left: 15px;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-number,
+        .timeline-item:nth-child(even) .timeline-number {
+            left: 15px;
+            right: auto;
+        }
+
+        .timeline-text h3::after {
+            width: 45px !important;
+        }
+
+        .timeline-image img {
+            height: 280px;
+        }
+
+        .timeline-text h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.875rem;
+        }
+
+        .timeline-text p {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-top: 1.25rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .section-badge {
+            padding: 0.4rem 1rem;
+            font-size: 0.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .about-header h2::after {
+            width: 50px;
+        }
+
+        .about-subtitle {
+            font-size: 0.95rem;
+        }
+
+        .timeline-item {
+            margin-bottom: 2rem;
+        }
+
+        .timeline-content,
+        .timeline-content.left,
+        .timeline-content.right {
+            padding: 1.5rem 0 !important;
+        }
+
+        .timeline-number {
+            width: 45px;
+            height: 45px;
+            font-size: 1rem;
+            top: -12px;
+            left: 12px;
+        }
+
+        .timeline-image img {
+            height: 250px;
+        }
+
+        .timeline-text h3 {
+            font-size: 1.4rem;
+        }
+
+        .timeline-text p {
+            font-size: 0.9rem;
+            margin-top: 1.125rem;
+        }
+    }
+
+</style>
+
+<script>
+    // Animación vinculada al scroll - se mueve con el progreso del scroll
+    function initScrollLinkedAnimations() {
+        const timelineItems = document.querySelectorAll('.timeline-item');
+        
+        function updateAnimations() {
+            timelineItems.forEach((item, index) => {
+                const element = item as HTMLElement;
+                const rect = element.getBoundingClientRect();
+                const windowHeight = window.innerHeight;
+                const elementHeight = rect.height;
+                
+                // Calcular el progreso del elemento en el viewport
+                const elementCenter = rect.top + (elementHeight / 2);
+                const viewportCenter = windowHeight / 2;
+                
+                // Punto de inicio: cuando el elemento está COMPLETAMENTE FUERA (bottom del elemento = bottom del viewport)
+                // Esto hace que la animación empiece antes, cuando el elemento apenas entra en pantalla
+                const startPoint = windowHeight;
+                // Punto final: cuando el centro del elemento llega al centro del viewport
+                const endPoint = viewportCenter;
+                
+                // Calcular progreso basado en la posición del centro del elemento
+                let progress = 1 - ((elementCenter - endPoint) / (startPoint - endPoint));
+                
+                // Clampear entre 0 y 1
+                progress = Math.max(0, Math.min(1, progress));
+                
+                // Aplicar curva ease-in-out para movimiento más suave
+                // Comienza lento, acelera en el medio, termina lento
+                progress = progress < 0.5 
+                    ? 2 * progress * progress 
+                    : 1 - Math.pow(-2 * progress + 2, 2) / 2;
+                
+                // Alternar direcciones: impares desde izquierda (-1), pares desde derecha (1)
+                const direction = (index % 2 === 0) ? -1 : 1;
+                
+                // Calcular transformación basada en el progreso
+                const maxDistance = 150;
+                const currentDistance = maxDistance * (1 - progress) * direction;
+                
+                // La opacidad empieza en 0.2 (oscurecida/semi-visible) en lugar de 0
+                // Esto hace que el elemento sea visible desde que entra en pantalla
+                const minOpacity = 0.2;
+                const opacity = minOpacity + (progress * (1 - minOpacity));
+                
+                // Aplicar transformación y opacidad
+                element.style.opacity = opacity.toString();
+                element.style.transform = `translateX(${currentDistance}px)`;
+                
+                // Añadir clase cuando está casi completamente visible
+                if (progress > 0.7) {
+                    element.classList.add('aos-animate');
+                } else {
+                    element.classList.remove('aos-animate');
+                }
+            });
+        }
+        
+        // Ejecutar al hacer scroll
+        let ticking = false;
+        window.addEventListener('scroll', () => {
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    updateAnimations();
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        });
+        
+        // Ejecutar una vez al cargar
+        updateAnimations();
+    }
+
+    // Inicializar cuando el DOM esté listo
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initScrollLinkedAnimations);
+    } else {
+        initScrollLinkedAnimations();
+    }
+</script>

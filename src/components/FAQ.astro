@@ -1,0 +1,243 @@
+---
+const faqs = [
+  {
+    question: "¿Necesito experiencia previa para unirme?",
+    answer: "¡Para nada! ForzaBox está diseñado para todos los niveles. Nuestros coaches adaptan cada entrenamiento a tu condición física actual y te guiarán paso a paso."
+  },
+  {
+    question: "¿Qué incluye la membresía?",
+    answer: "Acceso ilimitado a todas nuestras clases, asesoría nutricional básica, seguimiento personalizado y acceso a nuestra comunidad exclusiva de miembros."
+  },
+  {
+    question: "¿Tienen clase de prueba gratis?",
+    answer: "¡Sí! Ofrecemos una clase de prueba completamente GRATIS para que conozcas nuestras instalaciones, equipo y metodología. Contáctanos para agendar."
+  },
+  {
+    question: "¿Cuáles son los horarios de las clases?",
+    answer: "Tenemos clases de lunes a viernes desde las 6:00 AM hasta las 9:00 PM, y los sábados de 8:00 AM a 12:00 PM. Consulta nuestra sección de horarios para más detalles."
+  },
+  {
+    question: "¿Qué debo llevar a mi primera clase?",
+    answer: "Ropa cómoda para entrenar, zapatillas deportivas, una botella de agua y una toalla. Nosotros proporcionamos todo el equipo necesario."
+  },
+  {
+    question: "¿Hay estacionamiento disponible?",
+    answer: "Sí, contamos con estacionamiento gratuito para todos nuestros miembros. También estamos cerca de transporte público."
+  },
+  {
+    question: "¿Ofrecen planes personalizados?",
+    answer: "¡Por supuesto! Ofrecemos entrenamientos personalizados one-on-one con nuestros coaches certificados. Contáctanos para conocer los planes disponibles."
+  },
+  {
+    question: "¿Cómo puedo cancelar o congelar mi membresía?",
+    answer: "Puedes congelar tu membresía hasta por 30 días al año por razones médicas o viaje. Para cancelaciones, requerimos un aviso de 15 días. Contáctanos para más información."
+  }
+];
+---
+
+<section id="faq" class="faq-section">
+  <div class="container">
+    <div class="faq-header">
+      <h2>Preguntas Frecuentes</h2>
+      <p>Encuentra respuestas a las dudas más comunes</p>
+    </div>
+
+    <div class="faq-list">
+      {faqs.map((faq, index) => (
+        <details class="faq-item">
+          <summary class="faq-question">
+            <span>{faq.question}</span>
+            <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </summary>
+          <div class="faq-answer">
+            <p>{faq.answer}</p>
+          </div>
+        </details>
+      ))}
+    </div>
+
+    <div class="faq-cta">
+      <h3>¿No encontraste lo que buscabas?</h3>
+      <p>Estamos aquí para ayudarte</p>
+      <div class="cta-buttons">
+        <a href="#contact" class="btn btn-primary">Enviar Mensaje</a>
+        <a href="https://wa.me/593987654321" target="_blank" class="btn btn-secondary">WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .faq-section {
+    padding: 5rem 0;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  }
+
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  .faq-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    color: white;
+  }
+
+  .faq-header h2 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+  }
+
+  .faq-header p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+  }
+
+  .faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .faq-item {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+
+  .faq-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  }
+
+  .faq-question {
+    padding: 1.5rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: #2d3748;
+    transition: all 0.3s ease;
+    user-select: none;
+  }
+
+  .faq-question:hover {
+    background: #f7fafc;
+  }
+
+  .faq-icon {
+    width: 24px;
+    height: 24px;
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+    margin-left: 1rem;
+  }
+
+  .faq-item[open] .faq-icon {
+    transform: rotate(180deg);
+  }
+
+  .faq-answer {
+    padding: 0 1.5rem 1.5rem;
+    color: #4a5568;
+    line-height: 1.7;
+    animation: slideDown 0.3s ease;
+  }
+
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .faq-cta {
+    margin-top: 4rem;
+    text-align: center;
+    color: white;
+  }
+
+  .faq-cta h3 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .faq-cta p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+  }
+
+  .cta-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    padding: 0.875rem 2rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: inline-block;
+  }
+
+  .btn-primary {
+    background: white;
+    color: #667eea;
+  }
+
+  .btn-primary:hover {
+    background: #f7fafc;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+
+  .btn-secondary {
+    background: #25D366;
+    color: white;
+  }
+
+  .btn-secondary:hover {
+    background: #128C7E;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+
+  @media (max-width: 768px) {
+    .faq-section {
+      padding: 3rem 0;
+    }
+
+    .faq-header h2 {
+      font-size: 2rem;
+    }
+
+    .faq-question {
+      padding: 1.25rem;
+      font-size: 1rem;
+    }
+
+    .cta-buttons {
+      flex-direction: column;
+    }
+
+    .btn {
+      width: 100%;
+    }
+  }
+</style>

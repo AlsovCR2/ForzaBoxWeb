@@ -1,0 +1,703 @@
+---
+// Importar todas las imágenes del carrusel
+import image1 from '../assets/IMG ENTRENAMIENTO 2.webp';
+import image2 from '../assets/IMG FORZA COMUNIDAD 2.webp';
+import image3 from '../assets/IMG ENTRENAMIENTO.webp';
+// Puedes añadir más imágenes aquí
+import image4 from '../assets/IMG ENTRENAMIENTO 4.webp'; // Usar otra imagen si tienes disponible
+
+// Array de imágenes para el carrusel
+const carouselImages = [
+    { src: image1.src, alt: 'Comunidad ForzaBox entrenando juntos' },
+    { src: image2.src, alt: 'Instalaciones ForzaBox' },
+    { src: image3.src, alt: 'Logo ForzaBox' },
+    { src: image4.src, alt: 'Entrenamiento en ForzaBox' },
+];
+---
+
+<section id="hero" class="hero-section">
+    <!-- Carrusel de imágenes de fondo -->
+    <div class="carousel-container">
+        {carouselImages.map((image, index) => (
+            <div class={`carousel-slide ${index === 0 ? 'active' : ''}`} data-slide={index}>
+                <img src={image.src} alt={image.alt} />
+            </div>
+        ))}
+        
+        <!-- Overlay oscuro -->
+        <div class="carousel-overlay"></div>
+    </div>
+
+    <!-- Indicadores de posición - Estilo numérico -->
+    <div class="carousel-indicators">
+        {carouselImages.map((_, index) => (
+            <button 
+                class={`indicator ${index === 0 ? 'active' : ''}`} 
+                data-slide={index}
+                aria-label={`Ir a imagen ${index + 1}`}
+            >
+                {String(index + 1).padStart(2, '0')}
+            </button>
+        ))}
+    </div>
+
+    <!-- Contenido principal -->
+    <div class="content">
+        <h1><span class="title-white">FORZA</span> <span class="title-cyan">BOX</span></h1>
+        <button onclick="location.href='#contact'" class="hero-btn">¡Únete Ahora!</button>
+    </div>
+</section>
+
+<style>
+    .hero-section {
+        position: relative;
+        width: 100%;
+        max-width: 100vw;
+        min-height: 100vh;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--accent-white);
+        text-align: center;
+        overflow: hidden;
+        box-sizing: border-box;
+    }
+
+    /* ==================== CARRUSEL ==================== */
+    .carousel-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+    }
+
+    .carousel-slide {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        z-index: 0;
+        transition: none;
+    }
+
+    .carousel-slide.active {
+        opacity: 1;
+        z-index: 2;
+        animation: smoothFadeIn 2s ease-in-out forwards;
+    }
+
+    .carousel-slide.previous {
+        opacity: 1;
+        z-index: 1;
+        animation: smoothFadeOut 2s ease-in-out forwards;
+    }
+
+    .carousel-slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center center;
+        filter: brightness(0.5) contrast(1.15);
+        transform: scale(1.08);
+        will-change: transform;
+    }
+
+    .carousel-slide.active img {
+        animation: kenBurnsZoomOut 8s ease-out forwards;
+    }
+
+    /* Overlay oscuro sobre el carrusel */
+    .carousel-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+            to bottom,
+            rgba(43, 43, 43, 0.3) 0%,
+            rgba(43, 43, 43, 0.5) 50%,
+            rgba(43, 43, 43, 0.6) 100%
+        );
+        z-index: 2;
+        pointer-events: none;
+    }
+
+    /* ==================== INDICADORES NUMÉRICOS ==================== */
+    .carousel-indicators {
+        position: absolute;
+        top: 50%;
+        right: 3rem;
+        transform: translateY(-50%);
+        /* Z-index BAJO para que NO interfiera con el header */
+        z-index: 3;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        align-items: flex-end;
+        /* Asegurar que esté dentro del hero */
+        pointer-events: auto;
+    }
+
+    .indicator {
+        background: transparent;
+        border: none;
+        color: rgba(255, 255, 255, 0.5);
+        font-size: var(--text-lg);
+        font-weight: 600;
+        font-family: var(--font-heading);
+        cursor: pointer;
+        transition: all 0.3s ease;
+        padding: 0;
+        line-height: 1;
+        min-width: 30px;
+        text-align: right;
+        pointer-events: auto;
+    }
+
+    .indicator:hover {
+        color: rgba(255, 255, 255, 0.8);
+        transform: translateX(-4px);
+    }
+
+    .indicator.active {
+        color: var(--primary-cyan);
+        font-size: var(--text-2xl);
+        text-shadow: 0 0 20px rgba(0, 229, 204, 0.8);
+        transform: scale(1.1);
+    }
+
+    /* ==================== CONTENIDO ==================== */
+    .content {
+        position: relative;
+        z-index: 3;
+        padding: 2rem;
+        margin-top: var(--header-height);
+        max-width: 1200px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    h1 {
+        font-size: clamp(2.5rem, 8vw, 4.5rem);
+        margin: 0 0 1.5rem 0;
+        font-weight: 900;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        opacity: 0;
+        animation: heroTitleEntry 1.2s cubic-bezier(0.4, 0, 0.2, 1) 0.3s forwards;
+    }
+
+    .title-white {
+        color: var(--accent-white);
+        text-shadow: 
+          0 2px 8px rgba(0, 0, 0, 0.9),
+          0 4px 16px rgba(0, 0, 0, 0.7),
+          0 0 20px rgba(0, 0, 0, 0.6);
+    }
+
+    .title-cyan {
+        color: var(--primary-cyan);
+        text-shadow: 
+          0 2px 8px rgba(0, 0, 0, 0.9),
+          0 4px 16px rgba(0, 0, 0, 0.7),
+          0 0 20px rgba(0, 0, 0, 0.6);
+    }
+
+    h2 {
+        font-size: clamp(1.75rem, 5vw, 3rem);
+        margin: 1rem 0;
+        color: var(--accent-white);
+        font-weight: 700;
+        text-shadow: 
+          0 2px 8px rgba(0, 0, 0, 0.8),
+          0 4px 16px rgba(0, 0, 0, 0.6),
+          0 0 20px rgba(0, 0, 0, 0.5);
+        letter-spacing: 2px;
+        text-transform: uppercase;
+    }
+
+    .hero-btn {
+        display: inline-block;
+        margin-top: 3rem;
+        padding: 1.25rem 3.5rem;
+        background: linear-gradient(135deg, var(--primary-cyan) 0%, var(--cyan-dark) 100%);
+        color: var(--dark-accent);
+        border: none;
+        border-radius: var(--radius-md);
+        font-size: clamp(1rem, 2.5vw, 1.35rem);
+        font-weight: 700;
+        cursor: pointer;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 
+            0 4px 20px rgba(0, 229, 204, 0.4),
+            0 8px 32px rgba(0, 229, 204, 0.3);
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        position: relative;
+        overflow: hidden;
+        opacity: 0;
+        animation: heroButtonEntry 1s cubic-bezier(0.4, 0, 0.2, 1) 0.8s forwards;
+    }
+
+    .hero-btn::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+            90deg,
+            transparent,
+            rgba(255, 255, 255, 0.3),
+            transparent
+        );
+        transition: left 0.5s ease;
+    }
+
+    .hero-btn::after {
+        content: '';
+        position: absolute;
+        inset: -2px;
+        background: linear-gradient(90deg, var(--primary-cyan), var(--cyan-light), var(--primary-cyan));
+        border-radius: var(--radius-md);
+        opacity: 0;
+        z-index: -1;
+        filter: blur(8px);
+        transition: opacity 0.4s ease;
+    }
+
+    .hero-btn:hover {
+        transform: translateY(-4px) scale(1.05);
+        box-shadow: 
+            0 6px 24px rgba(0, 229, 204, 0.5),
+            0 12px 40px rgba(0, 229, 204, 0.4);
+        background: var(--primary-cyan);
+    }
+
+    .hero-btn:hover::before {
+        left: 100%;
+    }
+
+    .hero-btn:hover::after {
+        opacity: 1;
+        animation: glowPulse 2s ease infinite;
+    }
+
+    .hero-btn:active {
+        transform: translateY(-2px) scale(1.02);
+    }
+
+    /* ==================== RESPONSIVE ==================== */
+    @media (max-width: 1024px) {
+        .hero-section {
+            min-height: 100vh;
+        }
+
+        .content {
+            padding: 1.75rem;
+            margin-top: var(--header-height);
+        }
+
+        .carousel-indicators {
+            right: 2rem;
+        }
+
+        .indicator {
+            font-size: var(--text-base);
+        }
+
+        .indicator.active {
+            font-size: var(--text-xl);
+        }
+
+        h1 {
+            margin-bottom: 1.25rem;
+            letter-spacing: 2px;
+        }
+
+        h2 {
+            margin: 0.875rem 0;
+            letter-spacing: 1.5px;
+        }
+
+        .hero-btn {
+            margin-top: 2.5rem;
+            padding: 1.15rem 3rem;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .hero-section {
+            min-height: 100vh;
+        }
+
+        .carousel-slide img {
+            object-position: center center;
+        }
+
+        .content {
+            padding: 1.5rem;
+            margin-top: var(--header-height);
+        }
+
+        .carousel-indicators {
+            right: 1.5rem;
+        }
+
+        .indicator {
+            font-size: var(--text-sm);
+        }
+
+        .indicator.active {
+            font-size: var(--text-lg);
+        }
+
+        h1 {
+            margin-bottom: 1rem;
+            letter-spacing: 1.5px;
+        }
+
+        h2 {
+            margin: 0.75rem 0;
+            letter-spacing: 1px;
+        }
+
+        .hero-btn {
+            padding: 1rem 2.5rem;
+            margin-top: 2rem;
+            letter-spacing: 1px;
+        }
+    }
+
+    @media (max-width: 540px) {
+        .carousel-slide img {
+            object-position: center center;
+        }
+
+        .content {
+            padding: 1rem;
+            margin-top: var(--header-height);
+        }
+
+        .carousel-indicators {
+            right: 1rem;
+        }
+
+        .indicator {
+            font-size: var(--text-xs);
+        }
+
+        .indicator.active {
+            font-size: var(--text-base);
+        }
+
+        h1 {
+          margin: 0 0 0.75rem 0;
+          letter-spacing: 1px;
+        }
+
+        h2 {
+          margin: 0.5rem 0;
+          letter-spacing: 0.5px;
+        }
+
+        .hero-btn {
+            padding: 0.875rem 2rem;
+            margin-top: 1.5rem;
+            letter-spacing: 0.75px;
+        }
+    }
+
+    @media (max-width: 374px) {
+        .carousel-indicators {
+            right: 0.75rem;
+        }
+
+        .hero-btn {
+            padding: 0.75rem 1.75rem;
+            width: 90%;
+            max-width: 280px;
+        }
+    }
+
+    /* Optimización para orientación landscape en mobile */
+    @media (max-width: 768px) and (orientation: landscape) {
+        .hero-section {
+            min-height: auto;
+            height: auto;
+            padding: 2rem 0;
+        }
+
+        .content {
+            margin-top: var(--header-height);
+        }
+
+        h1 {
+            font-size: clamp(2rem, 6vw, 3rem);
+            margin-bottom: 0.75rem;
+        }
+
+        h2 {
+            font-size: clamp(1.25rem, 4vw, 2rem);
+            margin: 0.5rem 0;
+        }
+
+        .hero-btn {
+            margin-top: 1.5rem;
+            padding: 0.875rem 2rem;
+        }
+    }
+
+    /* Dispositivos muy grandes */
+    @media (min-width: 1920px) {
+        .carousel-slide img {
+            object-fit: cover;
+        }
+
+        .content {
+            max-width: 1400px;
+        }
+
+        .carousel-indicators {
+            right: 4rem;
+        }
+
+        .indicator {
+            font-size: var(--text-xl);
+        }
+
+        .indicator.active {
+            font-size: var(--text-3xl);
+        }
+
+        h1 {
+            font-size: 5rem;
+        }
+
+        h2 {
+            font-size: 3.5rem;
+        }
+
+        .hero-btn {
+            font-size: 1.5rem;
+            padding: 1.5rem 4rem;
+        }
+    }
+
+    /* ==================== KEYFRAME ANIMATIONS ==================== */
+    @keyframes heroTitleEntry {
+        0% {
+            opacity: 0;
+            transform: translateY(30px) scale(0.9);
+            filter: blur(10px);
+        }
+        50% {
+            filter: blur(5px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+            filter: blur(0);
+        }
+    }
+
+    @keyframes heroButtonEntry {
+        0% {
+            opacity: 0;
+            transform: translateY(20px) scale(0.8);
+        }
+        50% {
+            transform: translateY(-5px) scale(1.02);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+    }
+
+    @keyframes glowPulse {
+        0%, 100% {
+            opacity: 0.6;
+            transform: scale(1);
+        }
+        50% {
+            opacity: 1;
+            transform: scale(1.05);
+        }
+    }
+
+    /* Transiciones suaves del carrusel - sin brillo */
+    @keyframes smoothFadeIn {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+
+    @keyframes smoothFadeOut {
+        0% {
+            opacity: 1;
+        }
+        100% {
+            opacity: 0;
+        }
+    }
+
+    @keyframes kenBurnsZoomOut {
+        0% {
+            transform: scale(1.08);
+        }
+        100% {
+            transform: scale(1);
+        }
+    }
+</style>
+
+<script>
+    // ==================== CARRUSEL FUNCIONALIDAD ====================
+    const initCarousel = () => {
+        const slides = document.querySelectorAll('.carousel-slide');
+        const indicators = document.querySelectorAll('.indicator');
+        
+        if (!slides.length) return;
+
+        let currentSlide = 0;
+        let previousSlide = -1;
+        let autoplayInterval: number | null = null;
+        const AUTOPLAY_DELAY = 6000; // 6 segundos para apreciar cada imagen
+
+        // Función para cambiar slide con transición suave
+        const goToSlide = (index: number) => {
+            if (index === currentSlide) return;
+
+            // Marcar el slide actual como "previous" para fade out
+            if (previousSlide >= 0) {
+                slides[previousSlide].classList.remove('previous');
+            }
+            
+            slides[currentSlide].classList.remove('active');
+            slides[currentSlide].classList.add('previous');
+            indicators[currentSlide].classList.remove('active');
+
+            // Activar el nuevo slide para fade in
+            previousSlide = currentSlide;
+            currentSlide = index;
+            
+            slides[index].classList.remove('previous');
+            slides[index].classList.add('active');
+            indicators[index].classList.add('active');
+
+            // Limpiar la clase "previous" después de la animación
+            setTimeout(() => {
+                if (previousSlide >= 0 && previousSlide !== currentSlide) {
+                    slides[previousSlide].classList.remove('previous');
+                }
+            }, 2000); // Duración de la animación de fade
+        };
+
+        // Ir al siguiente slide
+        const nextSlide = () => {
+            const next = (currentSlide + 1) % slides.length;
+            goToSlide(next);
+        };
+
+        // Ir al slide anterior
+        const prevSlide = () => {
+            const prev = (currentSlide - 1 + slides.length) % slides.length;
+            goToSlide(prev);
+        };
+
+        // Iniciar autoplay
+        const startAutoplay = () => {
+            autoplayInterval = setInterval(nextSlide, AUTOPLAY_DELAY);
+        };
+
+        // Detener autoplay
+        const stopAutoplay = () => {
+            if (autoplayInterval) {
+                clearInterval(autoplayInterval);
+                autoplayInterval = null;
+            }
+        };
+
+        // Event listeners para indicadores
+        indicators.forEach((indicator, index) => {
+            indicator.addEventListener('click', () => {
+                goToSlide(index);
+                stopAutoplay();
+                startAutoplay();
+            });
+        });
+
+        // Obtener referencia al hero section para eventos táctiles y teclado
+        const heroSection = document.querySelector('.hero-section');
+
+        // Soporte para teclado (accesibilidad)
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') {
+                prevSlide();
+                stopAutoplay();
+                startAutoplay();
+            } else if (e.key === 'ArrowRight') {
+                nextSlide();
+                stopAutoplay();
+                startAutoplay();
+            }
+        });
+
+        // Soporte para gestos táctiles (mobile)
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        heroSection?.addEventListener('touchstart', (e) => {
+            const touchEvent = e as TouchEvent;
+            touchStartX = touchEvent.changedTouches[0].screenX;
+        }, { passive: true });
+
+        heroSection?.addEventListener('touchend', (e) => {
+            const touchEvent = e as TouchEvent;
+            touchEndX = touchEvent.changedTouches[0].screenX;
+            handleSwipe();
+        }, { passive: true });
+
+        const handleSwipe = () => {
+            const swipeThreshold = 50;
+            
+            if (touchEndX < touchStartX - swipeThreshold) {
+                // Swipe left - next slide
+                nextSlide();
+                stopAutoplay();
+                startAutoplay();
+            }
+            
+            if (touchEndX > touchStartX + swipeThreshold) {
+                // Swipe right - previous slide
+                prevSlide();
+                stopAutoplay();
+                startAutoplay();
+            }
+        };
+
+        // Iniciar autoplay al cargar
+        startAutoplay();
+
+        // Limpiar interval cuando se salga de la página
+        window.addEventListener('beforeunload', stopAutoplay);
+    };
+
+    // Ejecutar cuando el DOM esté listo
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initCarousel);
+    } else {
+        initCarousel();
+    }
+</script>

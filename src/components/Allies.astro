@@ -1,0 +1,98 @@
+---
+import trainer1 from '../assets/LOGO FORZA 2.webp'; // Asegúrate de tener imágenes adecuadas
+
+---
+
+<section id="allies">
+    <div class="content">
+        <h2>Nuestras Alianzas</h2>
+        <div class="trainer-list">
+            <div class="trainer">
+                <img src={trainer1.src} alt="Entrenador 1" />
+                <h3>Kendall Monge Vásquez</h3>
+                <p>Kendall es un entrenador.....</p>
+            </div>
+            
+        </div>
+        <div class="testimonials">
+            <h3>Testimonios</h3>
+            <blockquote>
+                <p>"ForzaBox ha cambiado mi vida. Los entrenadores son increíbles y siempre están ahí para motivarte." - Ana</p>
+            </blockquote>
+            <blockquote>
+                <p>"Gracias a ForzaBox, he mejorado mi condición física y he encontrado una comunidad increíble." - Pedro</p>
+            </blockquote>
+            <blockquote>
+                <p>"Los entrenadores de ForzaBox son los mejores. Siempre te empujan a dar lo mejor de ti." - Laura</p>
+            </blockquote>
+        </div>
+    </div>
+</section>
+
+<style>
+    #trainers {
+        padding: 4rem 2rem;
+        background-color: var(--color-neutral);
+        color: var(--color-primary);
+        text-align: center;
+    }
+
+    .content {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    h2 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .trainer-list {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
+
+    .trainer {
+        flex: 1;
+        margin: 1rem;
+        max-width: 200px;
+    }
+
+    .trainer img {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+    }
+
+    .trainer h3 {
+        font-size: 1.25rem;
+        margin-top: 0.5rem;
+    }
+
+    .trainer p {
+        font-size: 1rem;
+        margin-top: 0.5rem;
+    }
+
+    .testimonials {
+        margin-top: 2rem;
+    }
+
+    .testimonials h3 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+
+    blockquote {
+        font-size: 1rem;
+        margin: 1rem 0;
+        padding: 1rem;
+        background-color: var(--color-accent);
+        border-left: 5px solid var(--color-secondary);
+    }
+
+    blockquote p {
+        margin: 0;
+    }
+</style>

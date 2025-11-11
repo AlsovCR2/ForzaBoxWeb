@@ -1,0 +1,86 @@
+---
+import facility1 from '../assets/LOGO FORZA 2.webp'; // Asegúrate de tener imágenes y videos adecuados
+import facility2 from '../assets/LOGO FORZA 2.webp';
+import facility3 from '../assets/LOGO FORZA 2.webp';
+import trainingVideo from '../assets/VIDEO PRESENTACIÓN - FORZA BOX - OPTIMIZADO.mp4';
+---
+
+<section id="community">
+    <div class="content">
+        <h2>Comunidad Forza Box</h2>
+        <p>Descubre nuestra comunidad y observa cómo entrenamos en ForzaBox.</p>
+        <div class="gallery">
+            <div class="gallery-item">
+                <img src={facility1.src} alt="Instalación 1" />
+            </div>
+            <div class="gallery-item">
+                <img src={facility2.src} alt="Instalación 2" />
+            </div>
+            <div class="gallery-item">
+                <img src={facility3.src} alt="Instalación 3" />
+            </div>
+        </div>
+
+        <div class="video-section">
+            <video controls>
+                <source src={trainingVideo} type="video/mp4" />
+            </video>
+        </div>
+        
+    </div>
+</section>
+
+<style>
+    #community {
+        padding: 4rem 2rem;
+        background-color: var(--color-primary);
+        color: var(--color-neutral);
+        text-align: center;
+    }
+
+    .content {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    h2 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+    }
+
+    p {
+        font-size: 1.25rem;
+        margin-bottom: 2rem;
+    }
+
+    .gallery {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+
+    .gallery-item {
+        flex: 1;
+        margin: 1rem;
+        max-width: 300px;
+    }
+
+    .gallery-item img, .gallery-item {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+    }
+
+    .video-section {
+        margin-top: 2rem;
+        display: flex;
+        justify-content: center;
+    }
+
+    .video-section video {
+        width: 100%;
+        max-width: 800px;
+        height: auto;
+        border-radius: 8px;
+    }
+</style>

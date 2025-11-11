@@ -1,0 +1,96 @@
+---
+import functionalImage from '../assets/LOGO FORZA 2.webp'; // Asegúrate de tener imágenes adecuadas
+import crossfitImage from '../assets/LOGO FORZA 2.webp';
+import scheduleImage from '../assets/LOGO FORZA 2.webp'; // Imagen con los horarios
+import pricesImage from '../assets/LOGO FORZA 2.webp'; // Imagen con los precios
+---
+
+<section id="programs">
+    <div class="content">
+        <h2>Nuestros Programas</h2>
+        <p>Ofrecemos una variedad de clases para todos los niveles y horarios. Encuentra el programa que mejor se adapte a tus necesidades y objetivos.</p>
+        <div class="program-list">
+            <div class="program">
+                <img src={functionalImage.src} alt="Entrenamiento Funcional" />
+                <h3>Entrenamiento Funcional</h3>
+                <p>Mejora tu fuerza, resistencia y flexibilidad con ejercicios funcionales diseñados para todos los niveles.</p>
+            </div>
+            <div class="program">
+                <img src={crossfitImage.src} alt="Crossfit" />
+                <h3>Crossfit</h3>
+                <p>Desafía tus límites con entrenamientos de alta intensidad que combinan fuerza y acondicionamiento metabólico.</p>
+            </div>
+        </div>
+        <div class="schedule">
+            <h3>Horarios y Niveles</h3>
+            <p>Ofrecemos clases en diferentes horarios y niveles para adaptarnos a tu rutina y necesidades.</p>
+            <img src={scheduleImage.src} alt="Horarios" />
+        </div>
+        <div class="prices">
+            <h3>Precios de las Clases</h3>
+            <img src={pricesImage.src} alt="Precios" />
+        </div>
+    </div>
+</section>
+
+<style>
+    #programs {
+        padding: 4rem 2rem;
+        background-color: var(--color-primary);
+        color: var(--color-neutral);
+        text-align: center;
+    }
+
+    .content {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    h2 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+    }
+
+    p {
+        font-size: 1.25rem;
+        margin-bottom: 2rem;
+    }
+
+    .program-list {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
+
+    .program {
+        flex: 1;
+        margin: 1rem;
+        max-width: 200px;
+    }
+
+    .program img {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+    }
+
+    .program h3 {
+        font-size: 1.25rem;
+        margin-top: 0.5rem;
+    }
+
+    .schedule, .prices {
+        margin-top: 2rem;
+    }
+
+    .schedule h3, .prices h3 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .schedule img, .prices img {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+    }
+</style>
