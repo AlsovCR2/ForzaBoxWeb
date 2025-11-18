@@ -3,7 +3,7 @@ import videoPresentation from '../assets/VIDEO PRESENTACIÓN - FORZA BOX - OPTIM
 import videoPoster from '../assets/PORTADAS FORZA.webp';
 ---
 
-<section id="video-presentation">
+<section id="about" class="video-presentation-section">
     <div class="video-container-wrapper">
         <div class="video-header">
             <h2>¿Qué es ForzaBox?</h2>
@@ -51,14 +51,14 @@ import videoPoster from '../assets/PORTADAS FORZA.webp';
 </section>
 
 <style>
-    #video-presentation {
+    .video-presentation-section {
         padding: var(--spacing-xl) 0;
         background: linear-gradient(180deg, #F8F9FA 0%, #FFFFFF 100%);
         position: relative;
         overflow: hidden;
     }
 
-    #video-presentation::before {
+    .video-presentation-section::before {
         content: '';
         position: absolute;
         top: 0;
@@ -306,7 +306,7 @@ import videoPoster from '../assets/PORTADAS FORZA.webp';
 
     /* ==================== RESPONSIVE ==================== */
     @media (max-width: 1024px) {
-        #video-presentation {
+        .video-presentation-section {
             padding: var(--spacing-lg) 0;
         }
 
@@ -326,7 +326,7 @@ import videoPoster from '../assets/PORTADAS FORZA.webp';
     }
 
     @media (max-width: 768px) {
-        #video-presentation {
+        .video-presentation-section {
             padding: var(--spacing-md) 0;
         }
 

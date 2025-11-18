@@ -1,86 +1,898 @@
 ---
-import facility1 from '../assets/LOGO FORZA 2.webp'; // Asegúrate de tener imágenes y videos adecuados
-import facility2 from '../assets/LOGO FORZA 2.webp';
-import facility3 from '../assets/LOGO FORZA 2.webp';
-import trainingVideo from '../assets/VIDEO PRESENTACIÓN - FORZA BOX - OPTIMIZADO.mp4';
+// Importar imágenes del collage - Reemplazar con tus imágenes reales
+// Tamaños: Small (1x1), Wide (2x1 horizontal), Tall (1x2 vertical)
+import photoSmallTopLeft from '../assets/IMG COLLAGE 1.webp';      // Pequeña - Arriba izquierda
+import photoWideTop from '../assets/IMG COLLAGE 4.webp';           // Ancha - Arriba centro
+import photoTallTopRight from '../assets/IMG COLLAGE 5.webp';      // Alta - Derecha (ocupa 2 filas)
+import photoWideMedium from '../assets/IMG COLLAGE 8.webp';        // Ancha - Medio izquierda
+import photoTallMediumCenter from '../assets/IMG COLLAGE 2.webp';  // Alta - Centro (ocupa 2 filas)
+import photoSmallBottomLeft from '../assets/IMG COLLAGE 7.webp';   // Pequeña - Abajo izquierda
+import photoSmallBottomCenter from '../assets/IMG COLLAGE 3.webp'; // Pequeña - Abajo centro
+import photoSmallBottomRight from '../assets/IMG COLLAGE 6.webp';  // Pequeña - Abajo derecha
 ---
 
-<section id="community">
-    <div class="content">
-        <h2>Comunidad Forza Box</h2>
-        <p>Descubre nuestra comunidad y observa cómo entrenamos en ForzaBox.</p>
-        <div class="gallery">
-            <div class="gallery-item">
-                <img src={facility1.src} alt="Instalación 1" />
+<section id="community" class="community-section">
+    <div class="container">
+        <!-- Header -->
+        <div class="section-header">
+            <span class="section-label">Nuestra Familia</span>
+            <h2>Comunidad ForzaBox</h2>
+            <p class="section-description">
+                Más que un gimnasio, somos una comunidad unida por la pasión del entrenamiento. 
+                Conoce a nuestros miembros y descubre el ambiente que nos hace únicos.
+            </p>
+        </div>
+
+        <!-- Collage de Fotos -->
+        <div class="photo-collage">
+            <!-- Fila 1: 3 fotos -->
+            <div class="collage-item item-1" data-delay="0">
+                <div class="collage-image-wrapper">
+                    <img src={photoSmallTopLeft.src} alt="Comunidad ForzaBox - Pequeña superior izquierda" class="collage-image" />
+                    <div class="image-overlay"></div>
+                </div>
             </div>
-            <div class="gallery-item">
-                <img src={facility2.src} alt="Instalación 2" />
+            <div class="collage-item item-2" data-delay="100">
+                <div class="collage-image-wrapper">
+                    <img src={photoWideTop.src} alt="Comunidad ForzaBox - Ancha superior" class="collage-image" />
+                    <div class="image-overlay"></div>
+                </div>
             </div>
-            <div class="gallery-item">
-                <img src={facility3.src} alt="Instalación 3" />
+            <div class="collage-item item-3" data-delay="200">
+                <div class="collage-image-wrapper">
+                    <img src={photoTallTopRight.src} alt="Comunidad ForzaBox - Alta derecha" class="collage-image" />
+                    <div class="image-overlay"></div>
+                </div>
+            </div>
+
+            <!-- Fila 2: 2 fotos -->
+            <div class="collage-item item-4" data-delay="150">
+                <div class="collage-image-wrapper">
+                    <img src={photoWideMedium.src} alt="Comunidad ForzaBox - Ancha medio" class="collage-image" />
+                    <div class="image-overlay"></div>
+                </div>
+            </div>
+            <div class="collage-item item-5" data-delay="250">
+                <div class="collage-image-wrapper">
+                    <img src={photoTallMediumCenter.src} alt="Comunidad ForzaBox - Alta centro" class="collage-image" />
+                    <div class="image-overlay"></div>
+                </div>
+            </div>
+
+            <!-- Fila 3: 3 fotos -->
+            <div class="collage-item item-6" data-delay="100">
+                <div class="collage-image-wrapper">
+                    <img src={photoSmallBottomLeft.src} alt="Comunidad ForzaBox - Pequeña inferior izquierda" class="collage-image" />
+                    <div class="image-overlay"></div>
+                </div>
+            </div>
+            <div class="collage-item item-7" data-delay="200">
+                <div class="collage-image-wrapper">
+                    <img src={photoSmallBottomCenter.src} alt="Comunidad ForzaBox - Pequeña inferior centro" class="collage-image" />
+                    <div class="image-overlay"></div>
+                </div>
+            </div>
+            <div class="collage-item item-8" data-delay="300">
+                <div class="collage-image-wrapper">
+                    <img src={photoSmallBottomRight.src} alt="Comunidad ForzaBox - Pequeña inferior derecha" class="collage-image" />
+                    <div class="image-overlay"></div>
+                </div>
             </div>
         </div>
 
-        <div class="video-section">
-            <video controls>
-                <source src={trainingVideo} type="video/mp4" />
-            </video>
+        <!-- Separador -->
+        <div class="section-divider">
+            <div class="divider-line"></div>
+            <div class="divider-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                    <circle cx="9" cy="7" r="4"/>
+                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                </svg>
+            </div>
+            <div class="divider-line"></div>
         </div>
-        
+
+        <!-- Sección de Testimonios -->
+        <div class="testimonials-section">
+            <div class="testimonials-header">
+                <span class="section-label">Lo Que Dicen</span>
+                <h3>Testimonios</h3>
+                <p class="testimonials-subtitle">
+                    Historias reales de transformación de nuestros miembros.
+                </p>
+            </div>
+
+            <div class="testimonials-grid">
+                <!-- Testimonio 1 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <div class="quote-icon">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+                            </svg>
+                        </div>
+                        <p class="testimonial-text">
+                            [Texto del testimonio 2 - Añadir experiencia del miembro]                        
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">
+                                <!-- Avatar placeholder -->
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                                </svg>
+                            </div>
+                            <div class="author-info">
+                                <h4 class="author-name">Alonso Trejos</h4>
+                                <p class="author-role">[Tiempo en ForzaBox]</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonio 2 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <div class="quote-icon">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+                            </svg>
+                        </div>
+                        <p class="testimonial-text">
+                            [Texto del testimonio 2 - Añadir experiencia del miembro]
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                                </svg>
+                            </div>
+                            <div class="author-info">
+                                <h4 class="author-name">Nicole Granados</h4>
+                                <p class="author-role">[Tiempo en ForzaBox]</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonio 3 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <div class="quote-icon">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+                            </svg>
+                        </div>
+                        <p class="testimonial-text">
+                            [Texto del testimonio 3 - Añadir experiencia del miembro]
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                                </svg>
+                            </div>
+                            <div class="author-info">
+                                <h4 class="author-name">Fernanda </h4>
+                                <p class="author-role">[Tiempo en ForzaBox]</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 
 <style>
-    #community {
-        padding: 4rem 2rem;
-        background-color: var(--color-primary);
-        color: var(--color-neutral);
-        text-align: center;
+    /* ==================== LAYOUT PRINCIPAL ==================== */
+    .community-section {
+        padding: var(--spacing-xl) 0;
+        background: linear-gradient(
+            to bottom,
+            #FFFFFF 0%,
+            #F8F9FA 50%,
+            #FFFFFF 100%
+        );
+        position: relative;
+        overflow: hidden;
     }
 
-    .content {
-        max-width: 800px;
+    .container {
+        max-width: 1400px;
         margin: 0 auto;
+        padding: 0 var(--spacing-md);
     }
 
-    h2 {
-        font-size: 2.5rem;
+    /* ==================== HEADER DE SECCIÓN ==================== */
+    .section-header {
+        text-align: center;
+        margin-bottom: var(--spacing-xl);
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    .section-header.animate {
+        animation: fadeInDown 0.8s ease forwards;
+    }
+
+    .section-label {
+        display: inline-block;
+        padding: 0.5rem 1.5rem;
+        background: var(--cyan-transparent-20);
+        color: var(--primary-cyan);
+        border-radius: var(--radius-full);
+        font-size: var(--text-sm);
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
         margin-bottom: 1rem;
     }
 
-    p {
-        font-size: 1.25rem;
-        margin-bottom: 2rem;
+    .section-header h2 {
+        font-size: clamp(2.5rem, 5vw, 3.5rem);
+        color: var(--dark-accent);
+        margin-bottom: 1rem;
+        font-weight: 900;
+        position: relative;
+        display: inline-block;
     }
 
-    .gallery {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-around;
+    .section-header h2::after {
+        content: '';
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 4px;
+        background: linear-gradient(90deg, var(--primary-cyan), var(--cyan-light));
+        border-radius: var(--radius-full);
     }
 
-    .gallery-item {
-        flex: 1;
-        margin: 1rem;
-        max-width: 300px;
-    }
-
-    .gallery-item img, .gallery-item {
-        width: 100%;
-        height: auto;
-        border-radius: 8px;
-    }
-
-    .video-section {
+    .section-description {
+        font-size: var(--text-lg);
+        color: var(--gray-dark);
+        line-height: 1.8;
         margin-top: 2rem;
-        display: flex;
-        justify-content: center;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
     }
 
-    .video-section video {
+    /* ==================== COLLAGE DE FOTOS ==================== */
+    .photo-collage {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(3, 250px);
+        gap: 1rem;
+        margin-bottom: var(--spacing-xl);
+        max-width: 1200px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /* Layout del collage tipo rompecabezas */
+    .collage-item.item-1 {
+        grid-column: 1 / 2;
+        grid-row: 1 / 2;
+    }
+
+    .collage-item.item-2 {
+        grid-column: 2 / 4;
+        grid-row: 1 / 2;
+    }
+
+    .collage-item.item-3 {
+        grid-column: 4 / 5;
+        grid-row: 1 / 3;
+    }
+
+    .collage-item.item-4 {
+        grid-column: 1 / 3;
+        grid-row: 2 / 3;
+    }
+
+    .collage-item.item-5 {
+        grid-column: 3 / 4;
+        grid-row: 2 / 4;
+    }
+
+    .collage-item.item-6 {
+        grid-column: 1 / 2;
+        grid-row: 3 / 4;
+    }
+
+    .collage-item.item-7 {
+        grid-column: 2 / 3;
+        grid-row: 3 / 4;
+    }
+
+    .collage-item.item-8 {
+        grid-column: 4 / 5;
+        grid-row: 3 / 4;
+    }
+
+    /* Animación de aparición desde abajo - controlada por scroll */
+    .collage-item {
+        opacity: 0;
+        transform: translateY(100px);
+        will-change: transform, opacity;
+        transition: none; /* Desactivar transición para control manual */
+    }
+
+    /* Wrapper de imagen con efectos */
+    .collage-image-wrapper {
+        position: relative;
         width: 100%;
-        max-width: 800px;
-        height: auto;
-        border-radius: 8px;
+        height: 100%;
+        min-height: 100%;
+        border-radius: var(--radius-lg);
+        overflow: hidden;
+        box-shadow: var(--shadow-md);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #1a1a1a;
+    }
+
+    .collage-image-wrapper:hover {
+        transform: scale(1.03);
+        box-shadow: var(--shadow-xl);
+        z-index: 10;
+    }
+
+    .collage-image {
+        min-width: 100%;
+        min-height: 100%;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        display: block;
+        transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .collage-image-wrapper:hover .collage-image {
+        transform: scale(1.08);
+    }
+
+    .image-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(
+            135deg,
+            rgba(0, 229, 204, 0.2) 0%,
+            rgba(43, 43, 43, 0.3) 100%
+        );
+        opacity: 0;
+        transition: opacity 0.4s ease;
+    }
+
+    .collage-image-wrapper:hover .image-overlay {
+        opacity: 1;
+    }
+
+    /* ==================== SEPARADOR ==================== */
+    .section-divider {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+        margin: var(--spacing-xl) 0;
+        padding: 0 2rem;
+        opacity: 0;
+        transform: scale(0.8);
+    }
+
+    .section-divider.animate {
+        animation: scaleIn 0.6s ease forwards 0.3s;
+    }
+
+    .divider-line {
+        flex: 1;
+        height: 2px;
+        background: linear-gradient(
+            to right,
+            transparent 0%,
+            var(--gray-light) 50%,
+            transparent 100%
+        );
+    }
+
+    .divider-icon {
+        width: 56px;
+        height: 56px;
+        background: var(--primary-cyan);
+        border-radius: var(--radius-full);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 16px rgba(0, 229, 204, 0.3);
+    }
+
+    .divider-icon svg {
+        width: 28px;
+        height: 28px;
+        color: var(--dark-accent);
+    }
+
+    /* ==================== SECCIÓN DE TESTIMONIOS ==================== */
+    .testimonials-section {
+        margin-top: var(--spacing-xl);
+    }
+
+    .testimonials-header {
+        text-align: center;
+        margin-bottom: var(--spacing-lg);
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    .testimonials-header.animate {
+        animation: fadeInDown 0.8s ease forwards 0.2s;
+    }
+
+    .testimonials-header h3 {
+        font-size: clamp(2rem, 4vw, 2.75rem);
+        color: var(--dark-accent);
+        margin-bottom: 1rem;
+        font-weight: 800;
+    }
+
+    .testimonials-subtitle {
+        font-size: var(--text-lg);
+        color: var(--gray-dark);
+        max-width: 700px;
+        margin: 0 auto;
+        margin-top: 1rem;
+    }
+
+    /* Grid de testimonios */
+    .testimonials-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: var(--spacing-lg);
+        margin-top: var(--spacing-lg);
+    }
+
+    /* Tarjetas de testimonio */
+    .testimonial-card {
+        background: var(--accent-white);
+        border-radius: var(--radius-xl);
+        padding: 2.5rem;
+        box-shadow: var(--shadow-md);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        border: 2px solid transparent;
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    .testimonial-card.animate {
+        animation: fadeInUp 0.8s ease forwards;
+    }
+
+    .testimonial-card:nth-child(1).animate {
+        animation-delay: 0.1s;
+    }
+
+    .testimonial-card:nth-child(2).animate {
+        animation-delay: 0.2s;
+    }
+
+    .testimonial-card:nth-child(3).animate {
+        animation-delay: 0.3s;
+    }
+
+    .testimonial-card:hover {
+        transform: translateY(-8px);
+        box-shadow: var(--shadow-xl);
+        border-color: var(--primary-cyan);
+    }
+
+    /* Icono de comillas */
+    .quote-icon {
+        width: 48px;
+        height: 48px;
+        margin-bottom: 1.5rem;
+        opacity: 0.2;
+    }
+
+    .quote-icon svg {
+        width: 100%;
+        height: 100%;
+        fill: var(--primary-cyan);
+    }
+
+    /* Texto del testimonio */
+    .testimonial-text {
+        font-size: var(--text-base);
+        line-height: 1.8;
+        color: var(--dark-accent);
+        margin-bottom: 2rem;
+        font-style: italic;
+    }
+
+    /* Autor del testimonio */
+    .testimonial-author {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding-top: 1.5rem;
+        border-top: 2px solid var(--gray-lighter);
+    }
+
+    .author-avatar {
+        width: 56px;
+        height: 56px;
+        border-radius: var(--radius-full);
+        background: var(--cyan-transparent-20);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+    }
+
+    .author-avatar svg {
+        width: 28px;
+        height: 28px;
+        fill: var(--primary-cyan);
+    }
+
+    .author-info {
+        flex: 1;
+    }
+
+    .author-name {
+        font-size: var(--text-lg);
+        font-weight: 700;
+        color: var(--dark-accent);
+        margin: 0 0 0.25rem 0;
+    }
+
+    .author-role {
+        font-size: var(--text-sm);
+        color: var(--gray-dark);
+        margin: 0;
+    }
+
+    /* ==================== ANIMACIONES ==================== */
+    @keyframes fadeInDown {
+        from {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes slideUpFade {
+        from {
+            opacity: 0;
+            transform: translateY(100px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes scaleIn {
+        from {
+            opacity: 0;
+            transform: scale(0.8);
+        }
+        to {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    /* ==================== RESPONSIVE ==================== */
+    @media (max-width: 1024px) {
+        .photo-collage {
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(4, 220px);
+            gap: 0.875rem;
+        }
+
+        .collage-item.item-1 {
+            grid-column: 1 / 2;
+            grid-row: 1 / 2;
+        }
+
+        .collage-item.item-2 {
+            grid-column: 2 / 4;
+            grid-row: 1 / 2;
+        }
+
+        .collage-item.item-3 {
+            grid-column: 1 / 3;
+            grid-row: 2 / 3;
+        }
+
+        .collage-item.item-4 {
+            grid-column: 3 / 4;
+            grid-row: 2 / 4;
+        }
+
+        .collage-item.item-5 {
+            grid-column: 1 / 2;
+            grid-row: 3 / 4;
+        }
+
+        .collage-item.item-6 {
+            grid-column: 2 / 3;
+            grid-row: 3 / 4;
+        }
+
+        .collage-item.item-7 {
+            grid-column: 1 / 2;
+            grid-row: 4 / 5;
+        }
+
+        .collage-item.item-8 {
+            grid-column: 2 / 4;
+            grid-row: 4 / 5;
+        }
+
+        .testimonials-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .community-section {
+            padding: var(--spacing-lg) 0;
+        }
+
+        .container {
+            padding: 0 var(--spacing-sm);
+        }
+
+        .section-header {
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .photo-collage {
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(6, 200px);
+            gap: 0.75rem;
+        }
+
+        .collage-item.item-1 {
+            grid-column: 1 / 2;
+            grid-row: 1 / 2;
+        }
+
+        .collage-item.item-2 {
+            grid-column: 2 / 3;
+            grid-row: 1 / 2;
+        }
+
+        .collage-item.item-3 {
+            grid-column: 1 / 3;
+            grid-row: 2 / 3;
+        }
+
+        .collage-item.item-4 {
+            grid-column: 1 / 2;
+            grid-row: 3 / 4;
+        }
+
+        .collage-item.item-5 {
+            grid-column: 2 / 3;
+            grid-row: 3 / 5;
+        }
+
+        .collage-item.item-6 {
+            grid-column: 1 / 2;
+            grid-row: 4 / 5;
+        }
+
+        .collage-item.item-7 {
+            grid-column: 1 / 2;
+            grid-row: 5 / 6;
+        }
+
+        .collage-item.item-8 {
+            grid-column: 2 / 3;
+            grid-row: 5 / 6;
+        }
+
+        .section-divider {
+            gap: 1rem;
+            margin: var(--spacing-lg) 0;
+        }
+
+        .divider-icon {
+            width: 48px;
+            height: 48px;
+        }
+
+        .divider-icon svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        .testimonial-card {
+            padding: 2rem;
+        }
+
+        .testimonials-grid {
+            gap: var(--spacing-md);
+        }
+    }
+
+    @media (max-width: 480px) {
+        .photo-collage {
+            grid-template-columns: 1fr;
+            grid-template-rows: repeat(8, 220px);
+            gap: 0.625rem;
+        }
+
+        .collage-item.item-1,
+        .collage-item.item-2,
+        .collage-item.item-3,
+        .collage-item.item-4,
+        .collage-item.item-5,
+        .collage-item.item-6,
+        .collage-item.item-7,
+        .collage-item.item-8 {
+            grid-column: 1 / 2;
+        }
+
+        .collage-item.item-1 { grid-row: 1 / 2; }
+        .collage-item.item-2 { grid-row: 2 / 3; }
+        .collage-item.item-3 { grid-row: 3 / 4; }
+        .collage-item.item-4 { grid-row: 4 / 5; }
+        .collage-item.item-5 { grid-row: 5 / 6; }
+        .collage-item.item-6 { grid-row: 6 / 7; }
+        .collage-item.item-7 { grid-row: 7 / 8; }
+        .collage-item.item-8 { grid-row: 8 / 9; }
+
+        .testimonial-card {
+            padding: 1.5rem;
+        }
+
+        .quote-icon {
+            width: 40px;
+            height: 40px;
+            margin-bottom: 1rem;
+        }
+
+        .author-avatar {
+            width: 48px;
+            height: 48px;
+        }
     }
 </style>
+
+<script>
+    function initCommunityAnimations() {
+        const sectionHeader = document.querySelector('.community-section .section-header');
+        const collageItems = document.querySelectorAll('.collage-item');
+        const divider = document.querySelector('.community-section .section-divider');
+        const testimonialsHeader = document.querySelector('.testimonials-header');
+        const testimonialCards = document.querySelectorAll('.testimonial-card');
+
+        // ==================== ANIMACIÓN VINCULADA AL SCROLL PARA COLLAGE ====================
+        function updateCollageAnimations() {
+            collageItems.forEach((item, index) => {
+                const element = item as HTMLElement;
+                const rect = element.getBoundingClientRect();
+                const windowHeight = window.innerHeight;
+                const elementHeight = rect.height;
+                
+                // Calcular el progreso del elemento en el viewport
+                const elementTop = rect.top;
+                
+                // Delays escalonados para crear efecto de agrupación progresiva más perceptible
+                // Las últimas 3 imágenes (item-6, item-7, item-8) tendrán el mismo delay
+                const delays = [
+                    0,      // item-1: Primera en aparecer
+                    0.15,   // item-2: Segundo grupo - más separado
+                    0.30,   // item-3: Tercer grupo - diferencia notable
+                    0.10,   // item-4: Entre primero y segundo grupo
+                    0.22,   // item-5: Entre segundo y tercer grupo
+                    0.35,   // item-6: Último grupo (tres finales juntos)
+                    0.35,   // item-7: Último grupo (tres finales juntos)
+                    0.35    // item-8: Último grupo (tres finales juntos)
+                ];
+                
+                const delayFactor = delays[index] || 0;
+                
+                // Punto de inicio: cuando el elemento está más arriba (aparece antes)
+                // Comenzar la animación cuando el elemento está al 85% del viewport
+                const startPoint = windowHeight * 0.85;
+                // Punto final: cuando el elemento llega al 30% del viewport (más arriba)
+                const endPoint = windowHeight * 0.30;
+                
+                // Calcular progreso basado en la posición superior del elemento
+                let progress = 1 - ((elementTop - endPoint) / (startPoint - endPoint));
+                
+                // Aplicar delay individual a cada imagen
+                progress = progress - delayFactor;
+                
+                // Clampear entre 0 y 1
+                progress = Math.max(0, Math.min(1, progress));
+                
+                // Aplicar curva de aceleración más suave y natural
+                // Usa una curva ease-out suave para movimiento más fluido
+                progress = 1 - Math.pow(1 - progress, 3);
+                
+                // Calcular transformación basada en el progreso
+                // Distancia más corta para movimiento más sutil
+                const maxDistance = 60; // Reducido de 120 a 60 para movimiento más limpio
+                const currentDistance = maxDistance * (1 - progress);
+                
+                // La opacidad empieza en 0.3 para transición más suave
+                const minOpacity = 0.3;
+                const opacity = minOpacity + (progress * (1 - minOpacity));
+                
+                // Aplicar transformación y opacidad de forma suave
+                element.style.opacity = opacity.toString();
+                element.style.transform = `translateY(${currentDistance}px)`;
+            });
+        }
+        
+        // Ejecutar al hacer scroll con optimización
+        let ticking = false;
+        window.addEventListener('scroll', () => {
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    updateCollageAnimations();
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        });
+        
+        // Ejecutar una vez al cargar para estado inicial
+        updateCollageAnimations();
+
+        // ==================== ANIMACIÓN TRADICIONAL PARA OTROS ELEMENTOS ====================
+        const observerOptions = {
+            threshold: 0.15,
+            rootMargin: '0px 0px -10% 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                }
+            });
+        }, observerOptions);
+
+        // Observar elementos que NO son del collage (usan animación tradicional)
+        if (sectionHeader) observer.observe(sectionHeader);
+        if (divider) observer.observe(divider);
+        if (testimonialsHeader) observer.observe(testimonialsHeader);
+        testimonialCards.forEach(card => observer.observe(card));
+    }
+
+    // Inicializar cuando el DOM esté listo
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initCommunityAnimations);
+    } else {
+        initCommunityAnimations();
+    }
+</script>

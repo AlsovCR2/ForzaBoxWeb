@@ -1,98 +1,745 @@
 ---
-import trainer1 from '../assets/LOGO FORZA 2.webp'; // Asegúrate de tener imágenes adecuadas
-
+import coachImage from '../assets/IMG COACH KENDALL.webp';
+import ally2Image from '../assets/IMG FISIOTERAPEUTA.webp';
+import ally1Image from '../assets/NUTRICIONISTA.webp';
 ---
 
-<section id="allies">
-    <div class="content">
-        <h2>Nuestras Alianzas</h2>
-        <div class="trainer-list">
-            <div class="trainer">
-                <img src={trainer1.src} alt="Entrenador 1" />
-                <h3>Kendall Monge Vásquez</h3>
-                <p>Kendall es un entrenador.....</p>
+<section id="allies" class="allies-section">
+    <div class="container">
+        <!-- Sección de Equipo -->
+        <div class="team-section">
+            <div class="section-header">
+                <span class="section-label">Nuestro Coach</span>
+                <h2>Equipo</h2>
+                <p class="section-description">
+                    Conoce al profesional que lidera y guía tu transformación física en ForzaBox.
+                </p>
             </div>
-            
+
+            <!-- Coach Card - Diseño destacado -->
+            <div class="coach-card">
+                <div class="coach-image-wrapper">
+                    <div class="coach-image-container">
+                        <img src={coachImage.src} alt="Kendall Monge Vásquez - Coach Principal" class="coach-image" />
+                        <div class="coach-badge">Head Coach</div>
+                    </div>
+                </div>
+                <div class="coach-info">
+                    <h3 class="coach-name">Kendall Monge Vásquez</h3>
+                    <p class="coach-title">Entrenador Certificado | Especialista en Alto Rendimiento</p>
+                    <div class="coach-description">
+                        <p>
+                            Coach profesional con más de 10 años de experiencia en entrenamiento funcional y CrossFit. 
+                            Certificado por organizaciones internacionales, Kendall se especializa en transformaciones 
+                            físicas y desarrollo de atletas de alto rendimiento.
+                        </p>
+                        <p>
+                            Su filosofía combina técnica, motivación y seguimiento personalizado para ayudar a cada 
+                            miembro a alcanzar su máximo potencial, sin importar su nivel inicial.
+                        </p>
+                    </div>
+                    <div class="coach-credentials">
+                        <div class="credential-item">
+                            <svg class="credential-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                                <polyline points="22 4 12 14.01 9 11.01"/>
+                            </svg>
+                            <span>Certificación CrossFit Level 2</span>
+                        </div>
+                        <div class="credential-item">
+                            <svg class="credential-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                                <polyline points="22 4 12 14.01 9 11.01"/>
+                            </svg>
+                            <span>Especialista en Nutrición Deportiva</span>
+                        </div>
+                        <div class="credential-item">
+                            <svg class="credential-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                                <polyline points="22 4 12 14.01 9 11.01"/>
+                            </svg>
+                            <span>+500 Atletas Entrenados</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="testimonials">
-            <h3>Testimonios</h3>
-            <blockquote>
-                <p>"ForzaBox ha cambiado mi vida. Los entrenadores son increíbles y siempre están ahí para motivarte." - Ana</p>
-            </blockquote>
-            <blockquote>
-                <p>"Gracias a ForzaBox, he mejorado mi condición física y he encontrado una comunidad increíble." - Pedro</p>
-            </blockquote>
-            <blockquote>
-                <p>"Los entrenadores de ForzaBox son los mejores. Siempre te empujan a dar lo mejor de ti." - Laura</p>
-            </blockquote>
+
+        <!-- Separador -->
+        <div class="section-divider">
+            <div class="divider-line"></div>
+            <div class="divider-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                    <circle cx="9" cy="7" r="4"/>
+                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                </svg>
+            </div>
+            <div class="divider-line"></div>
+        </div>
+
+        <!-- Sección de Alianzas -->
+        <div class="alliances-section">
+            <div class="section-header">
+                <span class="section-label">Trabajamos Juntos</span>
+                <h2>Alianzas Estratégicas</h2>
+                <p class="section-description">
+                    Colaboramos con profesionales y empresas líderes para brindarte la mejor experiencia integral de entrenamiento.
+                </p>
+            </div>
+
+            <div class="allies-grid">
+                <!-- Aliado 1 -->
+                <div class="ally-card">
+                    <div class="ally-image-wrapper">
+                        <img src={ally1Image.src} alt="Aliado 1" class="ally-image" />
+                        <div class="ally-overlay">
+                            <span class="ally-category">Nutrición</span>
+                        </div>
+                    </div>
+                    <div class="ally-content">
+                        <h3 class="ally-name">Nombre del Aliado 1</h3>
+                        <p class="ally-specialty">Especialidad o Empresa</p>
+                        <p class="ally-description">
+                            Descripción breve del aliado, su especialidad y cómo complementa los servicios de ForzaBox 
+                            para ofrecer una experiencia completa a nuestros miembros.
+                        </p>
+                        <div class="ally-features">
+                            <span class="feature-tag">Planes Nutricionales</span>
+                            <span class="feature-tag">Asesoría Personalizada</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Aliado 2 -->
+                <div class="ally-card">
+                    <div class="ally-image-wrapper">
+                        <img src={ally2Image.src} alt="Aliado 2" class="ally-image" />
+                        <div class="ally-overlay">
+                            <span class="ally-category">Fisioterapia</span>
+                        </div>
+                    </div>
+                    <div class="ally-content">
+                        <h3 class="ally-name">Nombre del Aliado 2</h3>
+                        <p class="ally-specialty">Especialidad o Empresa</p>
+                        <p class="ally-description">
+                            Descripción breve del segundo aliado, destacando cómo su servicio ayuda en la prevención 
+                            de lesiones y recuperación muscular de nuestros atletas.
+                        </p>
+                        <div class="ally-features">
+                            <span class="feature-tag">Recuperación Muscular</span>
+                            <span class="feature-tag">Prevención de Lesiones</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </section>
 
 <style>
-    #trainers {
-        padding: 4rem 2rem;
-        background-color: var(--color-neutral);
-        color: var(--color-primary);
-        text-align: center;
+    /* ==================== LAYOUT PRINCIPAL ==================== */
+    .allies-section {
+        padding: var(--spacing-xl) 0;
+        background: linear-gradient(
+            to bottom,
+            #FFFFFF 0%,
+            #F8F9FA 50%,
+            #FFFFFF 100%
+        );
+        position: relative;
+        overflow: hidden;
     }
 
-    .content {
-        max-width: 800px;
+    .container {
+        max-width: 1400px;
         margin: 0 auto;
+        padding: 0 var(--spacing-md);
     }
 
-    h2 {
-        font-size: 2.5rem;
+    /* ==================== HEADERS DE SECCIÓN ==================== */
+    .section-header {
+        text-align: center;
+        margin-bottom: var(--spacing-lg);
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .section-label {
+        display: inline-block;
+        padding: 0.5rem 1.5rem;
+        background: var(--cyan-transparent-20);
+        color: var(--primary-cyan);
+        border-radius: var(--radius-full);
+        font-size: var(--text-sm);
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
         margin-bottom: 1rem;
     }
 
-    .trainer-list {
-        display: flex;
-        justify-content: space-around;
-        flex-wrap: wrap;
+    .section-header h2 {
+        font-size: clamp(2.5rem, 5vw, 3.5rem);
+        color: var(--dark-accent);
+        margin-bottom: 1rem;
+        font-weight: 900;
+        position: relative;
+        display: inline-block;
     }
 
-    .trainer {
-        flex: 1;
-        margin: 1rem;
-        max-width: 200px;
+    .section-header h2::after {
+        content: '';
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 4px;
+        background: linear-gradient(90deg, var(--primary-cyan), var(--cyan-light));
+        border-radius: var(--radius-full);
     }
 
-    .trainer img {
-        width: 100%;
-        height: auto;
-        border-radius: 8px;
-    }
-
-    .trainer h3 {
-        font-size: 1.25rem;
-        margin-top: 0.5rem;
-    }
-
-    .trainer p {
-        font-size: 1rem;
-        margin-top: 0.5rem;
-    }
-
-    .testimonials {
+    .section-description {
+        font-size: var(--text-lg);
+        color: var(--gray-dark);
+        line-height: 1.8;
         margin-top: 2rem;
     }
 
-    .testimonials h3 {
-        font-size: 1.5rem;
-        margin-bottom: 1rem;
+    /* ==================== SECCIÓN DE EQUIPO (COACH) ==================== */
+    .team-section {
+        margin-bottom: var(--spacing-lg);
     }
 
-    blockquote {
-        font-size: 1rem;
-        margin: 1rem 0;
-        padding: 1rem;
-        background-color: var(--color-accent);
-        border-left: 5px solid var(--color-secondary);
+    .team-section .section-header {
+        opacity: 0;
+        transform: translateY(-20px);
     }
 
-    blockquote p {
+    .team-section .section-header.animate {
+        animation: fadeInDown 0.8s ease forwards;
+    }
+
+    .alliances-section .section-header {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    .alliances-section .section-header.animate {
+        animation: fadeInDown 0.8s ease forwards 0.2s;
+    }
+
+    .coach-card {
+        display: grid;
+        grid-template-columns: 0.9fr 1.1fr;
+        gap: 4rem;
+        align-items: center;
+        background: transparent;
+        border-radius: var(--radius-xl);
+        padding: 0;
+        transition: all 0.4s ease;
+        position: relative;
+        overflow: visible;
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    .coach-card.animate {
+        animation: fadeInUp 0.8s ease forwards;
+    }
+
+    .coach-card:hover {
+        transform: translateY(-4px);
+    }
+
+    /* Imagen del Coach */
+    .coach-image-wrapper {
+        position: relative;
+    }
+
+    .coach-image-container {
+        position: relative;
+        border-radius: var(--radius-lg);
+        overflow: hidden;
+        box-shadow: var(--shadow-md);
+        background: var(--accent-white);
+    }
+
+    .coach-image {
+        width: 100%;
+        height: 500px;
+        object-fit: contain;
+        object-position: center;
+        display: block;
+        transition: transform 0.6s ease;
+        background: transparent;
+    }
+
+    .coach-card:hover .coach-image {
+        transform: scale(1.05);
+    }
+
+    .coach-badge {
+        position: absolute;
+        top: 1.5rem;
+        right: 1.5rem;
+        padding: 0.75rem 1.5rem;
+        background: linear-gradient(135deg, var(--primary-cyan), var(--cyan-light));
+        color: var(--dark-accent);
+        border-radius: var(--radius-full);
+        font-size: var(--text-sm);
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        box-shadow: 0 4px 12px rgba(0, 229, 204, 0.4);
+    }
+
+    /* Información del Coach */
+    .coach-info {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .coach-name {
+        font-size: clamp(2rem, 4vw, 2.5rem);
+        color: var(--dark-accent);
+        font-weight: 800;
+        margin: 0;
+        line-height: 1.2;
+    }
+
+    .coach-title {
+        font-size: var(--text-lg);
+        color: var(--primary-cyan);
+        font-weight: 600;
+        margin: 0;
+        padding-bottom: 1rem;
+        border-bottom: 2px solid var(--gray-lighter);
+    }
+
+    .coach-description {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .coach-description p {
+        font-size: var(--text-base);
+        color: var(--gray-dark);
+        line-height: 1.8;
         margin: 0;
     }
+
+    /* Credenciales del Coach */
+    .coach-credentials {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        padding-top: 1rem;
+        border-top: 2px solid var(--gray-lighter);
+    }
+
+    .credential-item {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        font-size: var(--text-base);
+        color: var(--dark-accent);
+        font-weight: 500;
+    }
+
+    .credential-icon {
+        width: 24px;
+        height: 24px;
+        color: var(--primary-cyan);
+        flex-shrink: 0;
+    }
+
+    /* ==================== SEPARADOR ==================== */
+    .section-divider {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+        margin: var(--spacing-lg) 0;
+        padding: 0 2rem;
+        opacity: 0;
+        transform: scale(0.8);
+    }
+
+    .section-divider.animate {
+        animation: scaleIn 0.6s ease forwards 0.3s;
+    }
+
+    .divider-line {
+        flex: 1;
+        height: 2px;
+        background: linear-gradient(
+            to right,
+            transparent 0%,
+            var(--gray-light) 50%,
+            transparent 100%
+        );
+    }
+
+    .divider-icon {
+        width: 56px;
+        height: 56px;
+        background: var(--primary-cyan);
+        border-radius: var(--radius-full);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 16px rgba(0, 229, 204, 0.3);
+    }
+
+    .divider-icon svg {
+        width: 28px;
+        height: 28px;
+        color: var(--dark-accent);
+    }
+
+    /* ==================== SECCIÓN DE ALIANZAS ==================== */
+    .alliances-section {
+        margin-top: 0;
+    }
+
+    .allies-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+        gap: var(--spacing-lg);
+    }
+
+    .ally-card {
+        background: transparent;
+        border-radius: var(--radius-xl);
+        overflow: visible;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    .ally-card.animate {
+        animation: fadeInUp 0.8s ease forwards;
+    }
+
+    .ally-card:nth-child(1).animate {
+        animation-delay: 0.1s;
+    }
+
+    .ally-card:nth-child(2).animate {
+        animation-delay: 0.3s;
+    }
+
+    .ally-card:hover {
+        transform: translateY(-8px);
+    }
+
+    /* Imagen del Aliado */
+    .ally-image-wrapper {
+        position: relative;
+        width: 100%;
+        height: 350px;
+        overflow: hidden;
+        border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+        box-shadow: var(--shadow-md);
+        background: var(--accent-white);
+    }
+
+    .ally-image {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        object-position: center;
+        transition: transform 0.6s ease;
+        background: transparent;
+    }
+
+    .ally-card:hover .ally-image {
+        transform: scale(1.1);
+    }
+
+    .ally-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(
+            to bottom,
+            transparent 0%,
+            rgba(43, 43, 43, 0.3) 50%,
+            rgba(43, 43, 43, 0.7) 100%
+        );
+        display: flex;
+        align-items: flex-end;
+        padding: 1.5rem;
+    }
+
+    .ally-category {
+        padding: 0.5rem 1.25rem;
+        background: var(--primary-cyan);
+        color: var(--dark-accent);
+        border-radius: var(--radius-full);
+        font-size: var(--text-sm);
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        box-shadow: 0 4px 12px rgba(0, 229, 204, 0.4);
+    }
+
+    /* Contenido del Aliado */
+    .ally-content {
+        padding: 2rem 0.5rem;
+    }
+
+    .ally-name {
+        font-size: var(--text-2xl);
+        color: var(--dark-accent);
+        font-weight: 800;
+        margin: 0 0 0.5rem 0;
+    }
+
+    .ally-specialty {
+        font-size: var(--text-base);
+        color: var(--primary-cyan);
+        font-weight: 600;
+        margin: 0 0 1rem 0;
+    }
+
+    .ally-description {
+        font-size: var(--text-base);
+        color: var(--gray-dark);
+        line-height: 1.7;
+        margin: 0 0 1.5rem 0;
+    }
+
+    .ally-features {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+    }
+
+    .feature-tag {
+        padding: 0.5rem 1rem;
+        background: var(--cyan-transparent-20);
+        color: var(--primary-cyan);
+        border-radius: var(--radius-md);
+        font-size: var(--text-sm);
+        font-weight: 600;
+        border: 1px solid rgba(0, 229, 204, 0.3);
+    }
+
+    @media (max-width: 1024px) {
+        .coach-card {
+            grid-template-columns: 1fr;
+            gap: 2.5rem;
+            padding: 0;
+        }
+
+        .coach-image {
+            height: 450px;
+        }
+
+        .allies-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .ally-image-wrapper {
+            height: 320px;
+        }
+    }   }
+    }
+
+    @media (max-width: 768px) {
+        .allies-section {
+            padding: var(--spacing-lg) 0;
+        }
+
+        .container {
+            padding: 0 var(--spacing-sm);
+        }
+
+        .section-header {
+            margin-bottom: var(--spacing-md);
+        }
+        .coach-card {
+            padding: 0;
+            gap: 2rem;
+        }
+
+        .coach-image {
+            height: 400px;
+        }
+
+        .coach-badge {
+            top: 1rem;
+            right: 1rem;
+            padding: 0.5rem 1rem;
+            font-size: var(--text-xs);
+        }
+
+        .coach-credentials {
+            padding: 0.5rem 1rem;
+            font-size: var(--text-xs);
+        }
+
+        .coach-credentials {
+        .section-divider {
+            gap: 1rem;
+            margin: var(--spacing-md) 0;
+            padding: 0 1rem;
+        }
+        .coach-credentials {
+            gap: 0.75rem;
+        }
+
+        .credential-item {
+            font-size: var(--text-sm);
+        }
+
+        .credential-icon {
+            width: 20px;
+            height: 20px;
+        }
+
+        .section-divider {
+            gap: 1rem;
+            margin: var(--spacing-lg) 0;
+            padding: 0 1rem;
+        }
+
+        .ally-image-wrapper {
+            height: 280px;
+        }
+
+        .ally-content {
+            padding: 1.5rem 0.5rem;
+        }
+    }
+
+    @media (max-width: 540px) {
+        .coach-card {
+            padding: 0;
+        }
+
+        .coach-image {
+            height: 350px;
+        }ally-image-wrapper {
+            height: 250px;
+        }
+    @media (max-width: 540px) {
+        .coach-card {
+            padding: 1.5rem;
+        }
+
+        .ally-image-wrapper {
+            height: 260px;
+        }
+
+        .ally-category {
+            padding: 0.4rem 1rem;
+            font-size: var(--text-xs);
+        }
+
+        .ally-content {
+            padding: 1.25rem 0.25rem;
+        }
+        .coach-title {
+            font-size: var(--text-base);
+        }
+
+        .ally-image-wrapper {
+            height: 220px;
+        }
+
+        .ally-category {
+            padding: 0.4rem 1rem;
+            font-size: var(--text-xs);
+        }
+
+        .feature-tag {
+            font-size: var(--text-xs);
+            padding: 0.4rem 0.75rem;
+        }
+    }       height: 300px;
+        }
+        .feature-tag {
+            font-size: var(--text-xs);
+            padding: 0.4rem 0.75rem;
+        }
+    }
+
+    /* ==================== ANIMACIONES ==================== */
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes fadeInDown {
+        from {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes scaleIn {
+        from {
+            opacity: 0;
+            transform: scale(0.8);
+        }
+        to {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
 </style>
+
+<script>
+    function initAlliesAnimations() {
+        const teamHeader = document.querySelector('.team-section .section-header');
+        const coachCard = document.querySelector('.coach-card');
+        const divider = document.querySelector('.section-divider');
+        const alliancesHeader = document.querySelector('.alliances-section .section-header');
+        const allyCards = document.querySelectorAll('.ally-card');
+
+        const observerOptions = {
+            threshold: 0.15,
+            rootMargin: '0px 0px -10% 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                }
+            });
+        }, observerOptions);
+
+        // Observar elementos
+        if (teamHeader) observer.observe(teamHeader);
+        if (coachCard) observer.observe(coachCard);
+        if (divider) observer.observe(divider);
+        if (alliancesHeader) observer.observe(alliancesHeader);
+        allyCards.forEach(card => observer.observe(card));
+    }
+
+    // Inicializar cuando el DOM esté listo
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initAlliesAnimations);
+    } else {
+        initAlliesAnimations();
+    }
+</script>
