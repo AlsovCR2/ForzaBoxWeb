@@ -572,7 +572,7 @@ const carouselImages = [
 
         let currentSlide = 0;
         let previousSlide = -1;
-        let autoplayInterval: number | null = null;
+        let autoplayInterval: ReturnType<typeof setInterval> | null = null;
         const AUTOPLAY_DELAY = 6000; // 6 segundos para apreciar cada imagen
 
         // Función para cambiar slide con transición suave

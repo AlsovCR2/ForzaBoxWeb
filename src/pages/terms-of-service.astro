@@ -1,0 +1,373 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Términos de Servicio - ForzaBox" description="Términos de Servicio de ForzaBox - Centro de Acondicionamiento Físico">
+    <Header />
+    
+    <section class="legal-page">
+        <div class="container">
+            <div class="legal-header">
+                <h1>Términos de Servicio</h1>
+                <p class="last-updated">Última actualización: {new Date().toLocaleDateString('es-ES', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
+            </div>
+
+            <div class="legal-content">
+                <section class="legal-section">
+                    <h2>1. Aceptación de los Términos</h2>
+                    <p>
+                        Al acceder y utilizar los servicios de ForzaBox, aceptas estar sujeto a estos Términos de Servicio. Si no estás de acuerdo con alguna parte de estos términos, no debes utilizar nuestros servicios.
+                    </p>
+                    <p>
+                        Estos términos se aplican a todos los miembros, visitantes y usuarios de nuestras instalaciones y servicios.
+                    </p>
+                </section>
+
+                <section class="legal-section">
+                    <h2>2. Membresías y Pagos</h2>
+                    <h3>2.1 Tipos de Membresía</h3>
+                    <p>
+                        ForzaBox ofrece diferentes tipos de membresías con beneficios y precios variados. Los detalles específicos de cada membresía se proporcionan en nuestra sección de precios.
+                    </p>
+                    
+                    <h3>2.2 Pagos</h3>
+                    <ul>
+                        <li>Los pagos de membresía deben realizarse por adelantado según el plan seleccionado</li>
+                        <li>Aceptamos pagos mediante transferencia bancaria, tarjeta de crédito/débito y efectivo</li>
+                        <li>Los pagos atrasados pueden resultar en la suspensión temporal de tu membresía</li>
+                        <li>Todos los precios están sujetos a cambios con previo aviso de 30 días</li>
+                    </ul>
+
+                    <h3>2.3 Renovación Automática</h3>
+                    <p>
+                        Las membresías mensuales se renuevan automáticamente a menos que nos notifiques con al menos 15 días de anticipación tu intención de cancelar.
+                    </p>
+                </section>
+
+                <section class="legal-section">
+                    <h2>3. Cancelaciones y Reembolsos</h2>
+                    <h3>3.1 Política de Cancelación</h3>
+                    <ul>
+                        <li>Debes notificar tu cancelación con al menos 15 días de anticipación</li>
+                        <li>Las cancelaciones deben realizarse por escrito (correo electrónico o en persona)</li>
+                        <li>La cancelación se hace efectiva al final del período de facturación actual</li>
+                    </ul>
+
+                    <h3>3.2 Congelamiento de Membresía</h3>
+                    <ul>
+                        <li>Puedes congelar tu membresía hasta por 30 días al año</li>
+                        <li>El congelamiento debe solicitarse con al menos 7 días de anticipación</li>
+                        <li>Motivos válidos incluyen enfermedad, lesión o viaje (puede requerirse documentación)</li>
+                    </ul>
+
+                    <h3>3.3 Reembolsos</h3>
+                    <p>
+                        No ofrecemos reembolsos por membresías pagadas, excepto en circunstancias excepcionales evaluadas caso por caso por la administración.
+                    </p>
+                </section>
+
+                <section class="legal-section">
+                    <h2>4. Uso de las Instalaciones</h2>
+                    <h3>4.1 Reglas Generales</h3>
+                    <ul>
+                        <li>Debes presentar tu membresía o identificación al ingresar</li>
+                        <li>El acceso está limitado a los horarios establecidos para tu tipo de membresía</li>
+                        <li>Debes usar ropa y calzado deportivo apropiado</li>
+                        <li>Mantén las instalaciones limpias y ordena el equipo después de usarlo</li>
+                        <li>Respeta a otros miembros y al personal en todo momento</li>
+                    </ul>
+
+                    <h3>4.2 Uso del Equipo</h3>
+                    <ul>
+                        <li>Utiliza el equipo de manera segura y según las instrucciones</li>
+                        <li>Reporta cualquier equipo dañado o defectuoso inmediatamente</li>
+                        <li>No monopolices el equipo durante períodos de alta demanda</li>
+                        <li>Limpia el equipo después de cada uso</li>
+                    </ul>
+                </section>
+
+                <section class="legal-section">
+                    <h2>5. Salud y Seguridad</h2>
+                    <h3>5.1 Evaluación Médica</h3>
+                    <p>
+                        Recomendamos encarecidamente que consultes con un médico antes de comenzar cualquier programa de ejercicio, especialmente si tienes condiciones médicas preexistentes.
+                    </p>
+
+                    <h3>5.2 Liberación de Responsabilidad</h3>
+                    <p>
+                        Al utilizar nuestras instalaciones, reconoces que:
+                    </p>
+                    <ul>
+                        <li>Participas en actividades físicas por tu propia voluntad y riesgo</li>
+                        <li>Comprendes los riesgos inherentes al ejercicio físico</li>
+                        <li>ForzaBox no es responsable por lesiones o daños personales, excepto por negligencia grave</li>
+                        <li>Debes informar al personal sobre cualquier condición médica relevante</li>
+                    </ul>
+
+                    <h3>5.3 Comportamiento</h3>
+                    <p>
+                        Nos reservamos el derecho de suspender o cancelar la membresía de cualquier persona que:
+                    </p>
+                    <ul>
+                        <li>Muestre comportamiento violento, abusivo o acosador</li>
+                        <li>Use drogas o alcohol en las instalaciones</li>
+                        <li>Viole repetidamente las reglas del gimnasio</li>
+                        <li>Ponga en peligro la seguridad de otros miembros o personal</li>
+                    </ul>
+                </section>
+
+                <section class="legal-section">
+                    <h2>6. Sesiones de Entrenamiento Personal</h2>
+                    <ul>
+                        <li>Las sesiones deben reservarse con anticipación</li>
+                        <li>Las cancelaciones deben realizarse con al menos 24 horas de anticipación</li>
+                        <li>Las sesiones canceladas con menos de 24 horas de aviso pueden no ser reembolsadas</li>
+                        <li>Los paquetes de sesiones tienen validez de 3 meses desde la compra</li>
+                    </ul>
+                </section>
+
+                <section class="legal-section">
+                    <h2>7. Propiedad Intelectual</h2>
+                    <p>
+                        Todo el contenido, logotipos, marcas y material proporcionado por ForzaBox son propiedad de la empresa y están protegidos por derechos de autor. No puedes reproducir, distribuir o utilizar nuestro material sin autorización previa por escrito.
+                    </p>
+                </section>
+
+                <section class="legal-section">
+                    <h2>8. Privacidad y Protección de Datos</h2>
+                    <p>
+                        El uso de tus datos personales está regido por nuestra <a href="/privacy-policy">Política de Privacidad</a>. Al aceptar estos términos, también aceptas nuestra política de privacidad.
+                    </p>
+                </section>
+
+                <section class="legal-section">
+                    <h2>9. Fotografía y Video</h2>
+                    <p>
+                        Ocasionalmente podemos tomar fotografías o videos en nuestras instalaciones para fines de marketing y redes sociales. Si no deseas aparecer en este material, notifícanos por escrito.
+                    </p>
+                </section>
+
+                <section class="legal-section">
+                    <h2>10. Invitados</h2>
+                    <ul>
+                        <li>Los miembros pueden traer invitados según su plan de membresía</li>
+                        <li>Los invitados deben registrarse en recepción y firmar una exención de responsabilidad</li>
+                        <li>El miembro es responsable del comportamiento de sus invitados</li>
+                        <li>Ofrecemos clases de prueba gratuitas para nuevos clientes potenciales</li>
+                    </ul>
+                </section>
+
+                <section class="legal-section">
+                    <h2>11. Objetos Perdidos</h2>
+                    <p>
+                        ForzaBox no se hace responsable por artículos perdidos o robados. Aunque hacemos nuestro mejor esfuerzo para mantener los objetos encontrados, no podemos garantizar su recuperación. Te recomendamos no dejar objetos de valor sin supervisión.
+                    </p>
+                </section>
+
+                <section class="legal-section">
+                    <h2>12. Modificaciones de los Términos</h2>
+                    <p>
+                        ForzaBox se reserva el derecho de modificar estos términos en cualquier momento. Los cambios significativos serán notificados con al menos 30 días de anticipación. El uso continuado de nuestros servicios después de la notificación constituye tu aceptación de los nuevos términos.
+                    </p>
+                </section>
+
+                <section class="legal-section">
+                    <h2>13. Ley Aplicable</h2>
+                    <p>
+                        Estos términos se rigen por las leyes de Costa Rica. Cualquier disputa relacionada con estos términos será sometida a la jurisdicción exclusiva de los tribunales de Cartago, Costa Rica.
+                    </p>
+                </section>
+
+                <section class="legal-section">
+                    <h2>14. Contacto</h2>
+                    <p>
+                        Si tienes preguntas sobre estos Términos de Servicio, contáctanos:
+                    </p>
+                    <ul>
+                        <li><strong>Email:</strong> <a href="mailto:forzabox15@gmail.com">forzabox15@gmail.com</a></li>
+                        <li><strong>Teléfono:</strong> <a href="tel:+50664861182">+506 6486 1182</a></li>
+                        <li><strong>Dirección:</strong> Cervantes, Alvarado, Cartago, Costa Rica</li>
+                    </ul>
+                </section>
+            </div>
+
+            <div class="legal-footer">
+                <a href="/" class="btn-back">← Volver al Inicio</a>
+            </div>
+        </div>
+    </section>
+
+    <Footer />
+</Layout>
+
+<style>
+    .legal-page {
+        padding: 8rem 0 4rem;
+        background: linear-gradient(
+            to bottom,
+            var(--accent-white) 0%,
+            var(--gray-lighter) 50%,
+            var(--accent-white) 100%
+        );
+        min-height: 100vh;
+    }
+
+    .container {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 0 2rem;
+    }
+
+    .legal-header {
+        text-align: center;
+        margin-bottom: 3rem;
+        padding-bottom: 2rem;
+        border-bottom: 2px solid var(--primary-cyan);
+    }
+
+    .legal-header h1 {
+        font-size: clamp(2rem, 5vw, 2.75rem);
+        color: var(--dark-accent);
+        font-weight: 800;
+        margin-bottom: 1rem;
+        font-family: var(--font-heading);
+    }
+
+    .last-updated {
+        color: var(--gray-dark);
+        font-size: var(--text-base);
+        font-style: italic;
+    }
+
+    .legal-content {
+        background: var(--accent-white);
+        padding: 3rem;
+        border-radius: var(--radius-xl);
+        box-shadow: var(--shadow-lg);
+    }
+
+    .legal-section {
+        margin-bottom: 2.5rem;
+    }
+
+    .legal-section:last-child {
+        margin-bottom: 0;
+    }
+
+    .legal-section h2 {
+        font-size: var(--text-xl);
+        color: var(--dark-accent);
+        font-weight: 700;
+        margin-bottom: 1rem;
+        font-family: var(--font-heading);
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid var(--gray-lighter);
+    }
+
+    .legal-section h3 {
+        font-size: var(--text-lg);
+        color: var(--dark-accent);
+        font-weight: 600;
+        margin: 1.5rem 0 0.75rem;
+        font-family: var(--font-heading);
+    }
+
+    .legal-section p {
+        color: var(--gray-dark);
+        line-height: 1.8;
+        margin-bottom: 1rem;
+        font-size: var(--text-base);
+    }
+
+    .legal-section ul {
+        margin: 1rem 0 1rem 1.5rem;
+        color: var(--gray-dark);
+    }
+
+    .legal-section li {
+        margin-bottom: 0.75rem;
+        line-height: 1.7;
+        padding-left: 0.5rem;
+    }
+
+    .legal-section li::marker {
+        color: var(--primary-cyan);
+    }
+
+    .legal-section a {
+        color: var(--primary-cyan);
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        border-bottom: 1px solid transparent;
+    }
+
+    .legal-section a:hover {
+        color: var(--cyan-dark);
+        border-bottom-color: var(--cyan-dark);
+    }
+
+    .legal-footer {
+        margin-top: 3rem;
+        text-align: center;
+    }
+
+    .btn-back {
+        display: inline-block;
+        padding: 1rem 2rem;
+        background: linear-gradient(135deg, var(--primary-cyan) 0%, var(--cyan-dark) 100%);
+        color: var(--dark-accent);
+        text-decoration: none;
+        border-radius: var(--radius-md);
+        font-weight: 700;
+        transition: all 0.3s ease;
+        box-shadow: var(--shadow-lg);
+    }
+
+    .btn-back:hover {
+        transform: translateY(-3px);
+        box-shadow: var(--shadow-xl);
+    }
+
+    @media (max-width: 768px) {
+        .legal-page {
+            padding: 6rem 0 3rem;
+        }
+
+        .container {
+            padding: 0 1rem;
+        }
+
+        .legal-content {
+            padding: 2rem 1.5rem;
+        }
+
+        .legal-header h1 {
+            font-size: 2rem;
+        }
+
+        .legal-section h2 {
+            font-size: var(--text-lg);
+        }
+
+        .legal-section h3 {
+            font-size: var(--text-base);
+        }
+    }
+
+    @media (max-width: 480px) {
+        .legal-page {
+            padding: 5rem 0 2rem;
+        }
+
+        .legal-content {
+            padding: 1.5rem 1rem;
+        }
+
+        .legal-section ul {
+            margin-left: 1rem;
+        }
+    }
+</style>
