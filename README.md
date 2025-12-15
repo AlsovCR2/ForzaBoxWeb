@@ -1,48 +1,55 @@
-# Astro Starter Kit: Basics
+# ForzaBoxWeb
 
-```sh
-npm create astro@latest -- --template basics
+ForzaBoxWeb es una plantilla / sitio web estático construida con Astro. El proyecto contiene la estructura mínima para un sitio frontend usando Astro (versión declarada en package.json: `astro ^5.5.4`) y está preparado para desarrollo local, construcción y previsualización.
+
+## Estado
+Proyecto inicial / plantilla. Contiene configuración base (astro.config.mjs, tsconfig.json) y carpetas típicas de un proyecto Astro (`src/`, `public/`).
+
+## Tecnologías
+- Astro (framework para sitios estáticos/SSG)
+- TypeScript (configuración vía `tsconfig.json`)
+- Node.js / npm para gestión de dependencias y scripts
+
+## Requisitos previos
+- Node.js (recomendado >= 18)
+- npm (o pnpm/yarn si prefieres)
+
+## Instalación y uso
+
+1. Instalar dependencias:
+```bash
+npm install
 ```
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
-
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
+2. Ejecutar en modo desarrollo (live reload):
+```bash
+npm run dev
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+3. Generar build de producción:
+```bash
+npm run build
+```
 
-## 🧞 Commands
+4. Previsualizar el build localmente:
+```bash
+npm run preview
+```
 
-All commands are run from the root of the project, from a terminal:
+Los scripts disponibles (definidos en package.json):
+- `dev` — `astro dev`
+- `build` — `astro build`
+- `preview` — `astro preview`
+- `astro` — `astro`
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+## Estructura del proyecto (resumen)
+- `astro.config.mjs` — configuración base de Astro.
+- `package.json` — metadatos y scripts del proyecto (depende de `astro ^5.5.4`).
+- `tsconfig.json` — configuración de TypeScript.
+- `src/` — código fuente del sitio (páginas, componentes, estilos).
+- `public/` — activos estáticos que se sirven tal cual.
+- `.vscode/` — configuraciones propias de VSCode (opcional).
+- `.gitignore` — archivos/paths ignorados por Git.
 
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+## Despliegue
+Astro genera un sitio estático tras `npm run build`. Puedes desplegar el contenido generado en servicios como Vercel, Netlify, GitHub Pages o cualquier hosting de archivos estáticos. Para despliegues con SSR o adaptadores específicos, añade el adaptador correspondiente en `astro.config.mjs`.
