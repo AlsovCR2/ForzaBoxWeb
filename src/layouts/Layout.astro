@@ -5,12 +5,18 @@ import '../styles/global.css';
 interface Props {
     title?: string;
     description?: string;
+    image?: string;
+    url?: string;
 }
 
 const { 
-    title = 'ForzaBox - Entrenamiento Funcional y CrossFit',
-    description = 'Centro de Acondicionamiento Físico, Entrenamiento Funcional y Salud Integral en Ecuador'
+    title = 'ForzaBox - Entrenamiento Funcional y CrossFit en Cervantes, Cartago',
+    description = 'Centro de acondicionamiento físico especializado en CrossFit y entrenamiento funcional. Programas personalizados, entrenadores certificados y comunidad fitness en Cervantes, Cartago.',
+    image = '/og-image.jpg',
+    url = 'https://forza-box.vercel.app/'
 } = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site || url);
 ---
 
 <!doctype html>
@@ -22,16 +28,69 @@ const {
         <link rel="icon" type="image/webp" href="/favicon.webp" />
         <link rel="shortcut icon" type="image/webp" href="/favicon.webp" />
         <link rel="apple-touch-icon" href="/favicon.webp" />
+        <link rel="canonical" href={canonicalURL} />
         <meta name="generator" content={Astro.generator} />
         
         <!-- SEO Meta Tags -->
-        <meta name="keywords" content="crossfit, entrenamiento funcional, gimnasio, fitness, Ecuador, ForzaBox" />
+        <meta name="keywords" content="crossfit Cervantes, entrenamiento funcional, gimnasio crossfit, fitness funcional, box crossfit, clases crossfit, entrenador personal Cervantes, gimnasio funcional, ForzaBox, acondicionamiento físico" />
         <meta name="author" content="ForzaBox" />
+        <meta name="robots" content="index, follow" />
+        <meta name="googlebot" content="index, follow" />
         
         <!-- Open Graph / Facebook -->
         <meta property="og:type" content="website" />
+        <meta property="og:url" content={canonicalURL} />
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
+        <meta property="og:image" content={new URL(image, Astro.site || url)} />
+        <meta property="og:locale" content="es_CR" />
+        <meta property="og:site_name" content="ForzaBox" />
+        
+        <!-- Twitter -->
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:url" content={canonicalURL} />
+        <meta name="twitter:title" content={title} />
+        <meta name="twitter:description" content={description} />
+        <meta name="twitter:image" content={new URL(image, Astro.site || url)} />
+        
+        <!-- Structured Data / Schema.org -->
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "HealthAndBeautyBusiness",
+            "name": "ForzaBox",
+            "description": "Centro de acondicionamiento físico especializado en CrossFit y entrenamiento funcional",
+            "url": "https://forza-box.vercel.app",
+            "logo": "https://forza-box.vercel.app/LOGO FORZA 2.webp",
+            "image": "https://forza-box.vercel.app/og-image.jpg",
+            "priceRange": "$$",
+            "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Cervantes, Alvarado",
+                "addressLocality": "Cartago",
+                "addressRegion": "Cartago",
+                "postalCode": "30201",
+                "addressCountry": "CR"
+            },
+            "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": "9.8844",
+                "longitude": "-83.9694"
+            },
+            "sameAs": [
+                "https://www.facebook.com/forzabox",
+                "https://www.instagram.com/forzabox"
+            ],
+            "openingHoursSpecification": [
+                {
+                    "@type": "OpeningHoursSpecification",
+                    "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+                    "opens": "06:00",
+                    "closes": "21:00"
+                }
+            ]
+        }
+        </script>
         
         <!-- Fonts de Google -->
         <link rel="preconnect" href="https://fonts.googleapis.com">

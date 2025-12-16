@@ -1,0 +1,10 @@
+# Permitir todos los bots
+User-agent: *
+Allow: /
+
+# Bloquear archivos privados si los hay
+Disallow: /admin/
+Disallow: /_astro/
+
+# Sitemap
+Sitemap: https://forzabox.com/sitemap-index.xml
