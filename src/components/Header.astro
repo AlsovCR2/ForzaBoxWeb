@@ -165,6 +165,7 @@ import logo from '../assets/LOGO FORZA1.webp';
     const mobileMenu = document.querySelector('.mobile-menu');
     const mobileLinks = document.querySelectorAll('.mobile-link');
     const desktopLinks = document.querySelectorAll('.nav-link');
+    const logoLink = document.querySelector('.logo');
 
     if (!header || !hamburger || !mobileMenu) return;
 
@@ -263,6 +264,10 @@ import logo from '../assets/LOGO FORZA1.webp';
     desktopLinks.forEach(link => {
       link.addEventListener('click', (e) => handleClick(link, e));
     });
+
+    if (logoLink) {
+      logoLink.addEventListener('click', (e) => handleClick(logoLink, e));
+    }
 
     window.addEventListener('scroll', () => {
       if (window.pageYOffset > 50) {
