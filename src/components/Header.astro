@@ -214,24 +214,45 @@ import logo from '../assets/LOGO FORZA1.webp';
       window.requestAnimationFrame(step);
     };
 
+    const updateHash = (hash: string, replace = false) => {
+      if (!hash || !hash.startsWith('#')) return;
+      if (window.location.hash === hash) return;
+
+      if (replace) {
+        history.replaceState(null, '', hash);
+      } else {
+        history.pushState(null, '', hash);
+      }
+    };
+
+    const scrollToHash = (hash: string) => {
+      if (!hash || !hash.startsWith('#')) return;
+
+      if (hash === '#hero') {
+        smoothScrollTo(0);
+        return;
+      }
+
+      const target = document.querySelector(hash);
+      if (target) {
+        const h = (header as HTMLElement).offsetHeight || 70;
+        const pos = (target as HTMLElement).offsetTop - h;
+        smoothScrollTo(pos);
+      }
+    };
+
     const handleClick = (link: Element, e: Event) => {
       e.preventDefault();
       const href = link.getAttribute('href');
+      if (!href || !href.startsWith('#')) return;
+      updateHash(href);
+
       if (mobileMenu.classList.contains('active')) {
         mobileMenu.classList.remove('active');
         hamburger.classList.remove('active');
       }
       setTimeout(() => {
-        if (href === '#hero') {
-          smoothScrollTo(0);
-        } else {
-          const target = document.querySelector(href || '');
-          if (target) {
-            const h = (header as HTMLElement).offsetHeight || 70;
-            const pos = (target as HTMLElement).offsetTop - h;
-            smoothScrollTo(pos);
-          }
-        }
+        scrollToHash(href);
       }, 100);
     };
 
@@ -252,6 +273,7 @@ import logo from '../assets/LOGO FORZA1.webp';
     });
 
     const sections = document.querySelectorAll('section[id]');
+    let lastActiveId = '';
     const observer = new IntersectionObserver((entries) => {
       // Filtrar solo las entradas que están realmente visibles
       const visibleEntries = entries.filter(entry => entry.isIntersecting);
@@ -271,6 +293,11 @@ import logo from '../assets/LOGO FORZA1.webp';
             link.classList.add('active');
           }
         });
+
+        if (id && id !== lastActiveId) {
+          lastActiveId = id;
+          updateHash(`#${id}`, true);
+        }
       }
     }, { 
       threshold: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0],
@@ -278,6 +305,10 @@ import logo from '../assets/LOGO FORZA1.webp';
     });
 
     sections.forEach(section => observer.observe(section));
+
+    if (window.location.hash) {
+      scrollToHash(window.location.hash);
+    }
 
     window.addEventListener('resize', () => {
       if (window.innerWidth > 768) {
