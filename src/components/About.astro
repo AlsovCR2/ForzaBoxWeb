@@ -97,6 +97,12 @@ import visionImg from '../assets/IMG VISION.webp';
     .about-header {
         text-align: center;
         margin-bottom: 4rem;
+        opacity: 0;
+        transform: translateY(24px);
+    }
+
+    .about-header.animate {
+        animation: fadeInDown 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     }
 
     .section-badge {
@@ -523,12 +529,24 @@ import visionImg from '../assets/IMG VISION.webp';
         }
     }
 
+    @keyframes fadeInDown {
+        from {
+            opacity: 0;
+            transform: translateY(24px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
 </style>
 
 <script>
     // Animación vinculada al scroll - se mueve con el progreso del scroll
     function initScrollLinkedAnimations() {
         const timelineItems = document.querySelectorAll('.timeline-item');
+        const aboutHeader = document.querySelector('.about-header');
         
         function updateAnimations() {
             timelineItems.forEach((item, index) => {
@@ -598,6 +616,26 @@ import visionImg from '../assets/IMG VISION.webp';
         
         // Ejecutar una vez al cargar
         updateAnimations();
+
+        if (aboutHeader) {
+            if (!('IntersectionObserver' in window)) {
+                aboutHeader.classList.add('animate');
+            } else {
+                const headerObserver = new IntersectionObserver((entries, obs) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('animate');
+                            obs.unobserve(entry.target);
+                        }
+                    });
+                }, {
+                    threshold: 0.2,
+                    rootMargin: '0px 0px -10% 0px'
+                });
+
+                headerObserver.observe(aboutHeader);
+            }
+        }
     }
 
     // Inicializar cuando el DOM esté listo

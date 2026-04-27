@@ -182,6 +182,38 @@ import logo from '../assets/LOGO FORZA1.webp';
       }
     });
 
+    const smoothScrollTo = (targetY: number) => {
+      const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (reducedMotion) {
+        window.scrollTo(0, targetY);
+        return;
+      }
+
+      const startY = window.scrollY;
+      const delta = targetY - startY;
+      const duration = Math.min(900, Math.max(500, Math.abs(delta) * 0.6));
+      const startTime = performance.now();
+
+      const easeInOutCubic = (t: number) => {
+        return t < 0.5
+          ? 4 * t * t * t
+          : 1 - Math.pow(-2 * t + 2, 3) / 2;
+      };
+
+      const step = (now: number) => {
+        const elapsed = now - startTime;
+        const progress = Math.min(1, elapsed / duration);
+        const eased = easeInOutCubic(progress);
+        window.scrollTo(0, startY + delta * eased);
+
+        if (progress < 1) {
+          window.requestAnimationFrame(step);
+        }
+      };
+
+      window.requestAnimationFrame(step);
+    };
+
     const handleClick = (link: Element, e: Event) => {
       e.preventDefault();
       const href = link.getAttribute('href');
@@ -191,13 +223,13 @@ import logo from '../assets/LOGO FORZA1.webp';
       }
       setTimeout(() => {
         if (href === '#hero') {
-          window.scrollTo({ top: 0, behavior: 'smooth' });
+          smoothScrollTo(0);
         } else {
           const target = document.querySelector(href || '');
           if (target) {
             const h = (header as HTMLElement).offsetHeight || 70;
             const pos = (target as HTMLElement).offsetTop - h;
-            window.scrollTo({ top: pos, behavior: 'smooth' });
+            smoothScrollTo(pos);
           }
         }
       }, 100);
