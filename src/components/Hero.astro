@@ -328,16 +328,20 @@ const carouselImages = [
 
     @media (max-width: 768px) {
         .hero-section {
-            min-height: 100vh;
+            min-height: 100dvh;
+            height: 100dvh;
+            margin-top: calc(var(--header-height) * -1);
         }
 
         .carousel-slide::before {
             background-attachment: scroll;
+            background-size: cover;
+            background-position: 50% 50%;
         }
 
         .content {
             padding: 1.5rem;
-            margin-top: var(--header-height);
+            margin-top: 0;
         }
 
         .carousel-indicators {
@@ -372,7 +376,7 @@ const carouselImages = [
     @media (max-width: 540px) {
         .content {
             padding: 1rem;
-            margin-top: var(--header-height);
+            margin-top: 0;
         }
 
         .carousel-indicators {
