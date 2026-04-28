@@ -20,7 +20,7 @@ const carouselImages = [
     <div class="carousel-container">
         {carouselImages.map((image, index) => (
             <div
-                class={`carousel-slide ${index === 0 ? 'active' : ''}`}
+                class="carousel-slide"
                 data-slide={index}
                 role="img"
                 aria-label={image.alt}
@@ -87,7 +87,7 @@ const carouselImages = [
         opacity: 0;
         z-index: 0;
         overflow: hidden;
-        transition: none;
+        transition: opacity 1.8s ease;
     }
 
     .carousel-slide::before {
@@ -100,23 +100,10 @@ const carouselImages = [
         background-repeat: no-repeat;
         background-attachment: fixed;
         filter: brightness(0.5) contrast(1.15);
-        will-change: background-position;
-    }
-
-    .carousel-slide.active {
-        opacity: 1;
-        z-index: 2;
-        animation: smoothFadeIn 2s ease-in-out forwards;
-    }
-
-    .carousel-slide.previous {
-        opacity: 1;
-        z-index: 1;
-        animation: smoothFadeOut 2s ease-in-out forwards;
-    }
-
-    .carousel-slide.active::before {
-        animation: kenBurnsZoomOut 8s ease-out forwards;
+        transform: scale(var(--slide-scale, 1));
+        transform-origin: center center;
+        transition: transform 8s ease;
+        will-change: transform;
     }
 
     /* Overlay oscuro sobre el carrusel */
@@ -544,33 +531,6 @@ const carouselImages = [
         }
     }
 
-    /* Transiciones suaves del carrusel - sin brillo */
-    @keyframes smoothFadeIn {
-        0% {
-            opacity: 0;
-        }
-        100% {
-            opacity: 1;
-        }
-    }
-
-    @keyframes smoothFadeOut {
-        0% {
-            opacity: 1;
-        }
-        100% {
-            opacity: 0;
-        }
-    }
-
-    @keyframes kenBurnsZoomOut {
-        0% {
-            background-position: 50% 52%;
-        }
-        100% {
-            background-position: 50% 48%;
-        }
-    }
 </style>
 
 <script>
@@ -582,37 +542,79 @@ const carouselImages = [
         if (!slides.length) return;
 
         let currentSlide = 0;
-        let previousSlide = -1;
         let autoplayInterval: ReturnType<typeof setInterval> | null = null;
         const AUTOPLAY_DELAY = 6000; // 6 segundos para apreciar cada imagen
+        const FADE_DURATION = 1800;
+        const START_SCALE = 1.08;
+        const END_SCALE = 1.0;
+
+        const setSlideStyles = (slide: Element, styles: Record<string, string>) => {
+            Object.entries(styles).forEach(([key, value]) => {
+                (slide as HTMLElement).style.setProperty(key, value);
+            });
+        };
+
+        const resetSlide = (slide: Element) => {
+            setSlideStyles(slide, {
+                opacity: '0',
+                zIndex: '0',
+                '--slide-scale': `${START_SCALE}`
+            });
+        };
+
+        // Inicializar estilos apilados
+        slides.forEach((slide, index) => {
+            resetSlide(slide);
+            if (index === 0) {
+                setSlideStyles(slide, {
+                    opacity: '1',
+                    zIndex: '2',
+                    '--slide-scale': `${END_SCALE}`
+                });
+            }
+        });
 
         // Función para cambiar slide con transición suave
         const goToSlide = (index: number) => {
             if (index === currentSlide) return;
 
-            // Marcar el slide actual como "previous" para fade out
-            if (previousSlide >= 0) {
-                slides[previousSlide].classList.remove('previous');
-            }
-            
-            slides[currentSlide].classList.remove('active');
-            slides[currentSlide].classList.add('previous');
-            indicators[currentSlide].classList.remove('active');
+            const outgoing = slides[currentSlide];
+            const incoming = slides[index];
 
-            // Activar el nuevo slide para fade in
-            previousSlide = currentSlide;
-            currentSlide = index;
-            
-            slides[index].classList.remove('previous');
-            slides[index].classList.add('active');
+            indicators[currentSlide].classList.remove('active');
             indicators[index].classList.add('active');
 
-            // Limpiar la clase "previous" después de la animación
+            // Preparar la siguiente imagen ya escalada antes de mostrarla
+            setSlideStyles(incoming, {
+                opacity: '0',
+                zIndex: '3',
+                '--slide-scale': `${START_SCALE}`
+            });
+
+            // Forzar un frame para que el navegador aplique el estado inicial
+            requestAnimationFrame(() => {
+                // Fade in del nuevo slide y fade out simultaneo del actual
+                setSlideStyles(incoming, {
+                    opacity: '1',
+                    zIndex: '3',
+                    '--slide-scale': `${END_SCALE}`
+                });
+
+                setSlideStyles(outgoing, {
+                    opacity: '0',
+                    zIndex: '2'
+                });
+            });
+
+            const outgoingIndex = currentSlide;
+            currentSlide = index;
+
+            // Limpiar el slide saliente despues del fade
             setTimeout(() => {
-                if (previousSlide >= 0 && previousSlide !== currentSlide) {
-                    slides[previousSlide].classList.remove('previous');
+                if (currentSlide !== outgoingIndex) {
+                    resetSlide(outgoing);
                 }
-            }, 2000); // Duración de la animación de fade
+            }, FADE_DURATION);
         };
 
         // Ir al siguiente slide
