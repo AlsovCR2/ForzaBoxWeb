@@ -301,8 +301,9 @@ import videoPoster from '../assets/PORTADAS FORZA.webp';
     .video-container.playing .play-button {
         opacity: 0;
         pointer-events: none;
-        transform: translate(-50%, -50%) scale(0);
+        transform: translate(-50%, -50%) scale(0) !important;
         transition: all 0.3s ease;
+        animation: none !important;
     }
 
     .video-container.playing .play-button::before {
@@ -591,9 +592,12 @@ import videoPoster from '../assets/PORTADAS FORZA.webp';
 
         if (!video || !playButton || !videoContainer) return;
 
+        let ignoreNextVideoClick = false;
+
         // Función para reproducir/pausar
         const togglePlay = () => {
             if (video.paused) {
+                videoContainer.classList.add('playing');
                 video.play()
                     .catch(error => {
                         console.error('Error al reproducir video:', error);
@@ -606,11 +610,27 @@ import videoPoster from '../assets/PORTADAS FORZA.webp';
 
         // Event listeners
         playButton.addEventListener('click', (e) => {
+            e.preventDefault();
             e.stopPropagation();
+            ignoreNextVideoClick = true;
+            setTimeout(() => {
+                ignoreNextVideoClick = false;
+            }, 150);
             togglePlay();
         });
 
-        video.addEventListener('click', togglePlay);
+        const handleVideoTap = (e: Event) => {
+            if (ignoreNextVideoClick) {
+                e.preventDefault();
+                return;
+            }
+            e.preventDefault();
+            togglePlay();
+        };
+
+        video.addEventListener('click', handleVideoTap, { capture: true });
+        video.addEventListener('pointerup', handleVideoTap, { capture: true });
+        video.addEventListener('touchend', handleVideoTap, { capture: true, passive: false });
 
         // Ocultar botón cuando comienza la reproducción
         video.addEventListener('play', () => {
