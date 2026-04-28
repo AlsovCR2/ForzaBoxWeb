@@ -95,15 +95,13 @@ const carouselImages = [
         position: absolute;
         inset: 0;
         background-image: var(--slide-image);
-        background-size: cover;
-        background-position: center center;
+        background-size: var(--slide-size, cover);
+        background-position: var(--slide-pos, 50% 50%);
         background-repeat: no-repeat;
         background-attachment: fixed;
         filter: brightness(0.5) contrast(1.15);
-        transform: scale(var(--slide-scale, 1));
-        transform-origin: center center;
-        transition: transform 8s ease;
-        will-change: transform;
+        transition: background-size 8s ease, background-position 8s ease;
+        will-change: background-size, background-position;
     }
 
     /* Overlay oscuro sobre el carrusel */
@@ -558,7 +556,8 @@ const carouselImages = [
             setSlideStyles(slide, {
                 opacity: '0',
                 zIndex: '0',
-                '--slide-scale': `${START_SCALE}`
+                '--slide-size': `${START_SCALE * 100}%`,
+                '--slide-pos': '50% 52%'
             });
         };
 
@@ -569,7 +568,8 @@ const carouselImages = [
                 setSlideStyles(slide, {
                     opacity: '1',
                     zIndex: '2',
-                    '--slide-scale': `${END_SCALE}`
+                    '--slide-size': `${END_SCALE * 100}%`,
+                    '--slide-pos': '50% 48%'
                 });
             }
         });
@@ -588,7 +588,8 @@ const carouselImages = [
             setSlideStyles(incoming, {
                 opacity: '0',
                 zIndex: '3',
-                '--slide-scale': `${START_SCALE}`
+                '--slide-size': `${START_SCALE * 100}%`,
+                '--slide-pos': '50% 52%'
             });
 
             // Forzar un frame para que el navegador aplique el estado inicial
@@ -597,7 +598,8 @@ const carouselImages = [
                 setSlideStyles(incoming, {
                     opacity: '1',
                     zIndex: '3',
-                    '--slide-scale': `${END_SCALE}`
+                    '--slide-size': `${END_SCALE * 100}%`,
+                    '--slide-pos': '50% 48%'
                 });
 
                 setSlideStyles(outgoing, {
