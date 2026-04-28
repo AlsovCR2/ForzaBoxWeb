@@ -119,6 +119,8 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || url);
                 touchMultiplier: 1.25
             });
 
+            globalThis['__lenis'] = lenis;
+
             const raf = (time) => {
                 lenis.raf(time);
                 requestAnimationFrame(raf);

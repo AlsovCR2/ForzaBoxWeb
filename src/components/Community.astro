@@ -323,7 +323,6 @@ import photoSmallBottomRight from '../assets/IMG COLLAGE 6.webp';  // Pequeña -
     /* Animación de aparición desde abajo - controlada por scroll */
     .collage-item {
         opacity: 0;
-        transform: translateY(100px);
         will-change: transform, opacity;
         transition: none; /* Desactivar transición para control manual */
     }
@@ -806,87 +805,72 @@ import photoSmallBottomRight from '../assets/IMG COLLAGE 6.webp';  // Pequeña -
 </style>
 
 <script>
+    import gsap from 'gsap';
+    import { ScrollTrigger } from 'gsap/ScrollTrigger';
+    import Lenis from 'lenis';
+
     function initCommunityAnimations() {
         const sectionHeader = document.querySelector('.community-section .section-header');
-        const collageItems = document.querySelectorAll('.collage-item');
         const divider = document.querySelector('.community-section .section-divider');
         const testimonialsHeader = document.querySelector('.testimonials-header');
         const testimonialCards = document.querySelectorAll('.testimonial-card');
 
-        // ==================== ANIMACIÓN VINCULADA AL SCROLL PARA COLLAGE ====================
-        function updateCollageAnimations() {
-            collageItems.forEach((item, index) => {
-                const element = item as HTMLElement;
-                const rect = element.getBoundingClientRect();
-                const windowHeight = window.innerHeight;
-                const elementHeight = rect.height;
-                
-                // Calcular el progreso del elemento en el viewport
-                const elementTop = rect.top;
-                
-                // Delays escalonados para crear efecto de agrupación progresiva más perceptible
-                // Las últimas 3 imágenes (item-6, item-7, item-8) tendrán el mismo delay
-                const delays = [
-                    0,      // item-1: Primera en aparecer
-                    0.15,   // item-2: Segundo grupo - más separado
-                    0.30,   // item-3: Tercer grupo - diferencia notable
-                    0.10,   // item-4: Entre primero y segundo grupo
-                    0.22,   // item-5: Entre segundo y tercer grupo
-                    0.35,   // item-6: Último grupo (tres finales juntos)
-                    0.35,   // item-7: Último grupo (tres finales juntos)
-                    0.35    // item-8: Último grupo (tres finales juntos)
-                ];
-                
-                const delayFactor = delays[index] || 0;
-                
-                // Punto de inicio: cuando el elemento está más arriba (aparece antes)
-                // Comenzar la animación cuando el elemento está al 85% del viewport
-                const startPoint = windowHeight * 0.85;
-                // Punto final: cuando el elemento llega al 30% del viewport (más arriba)
-                const endPoint = windowHeight * 0.30;
-                
-                // Calcular progreso basado en la posición superior del elemento
-                let progress = 1 - ((elementTop - endPoint) / (startPoint - endPoint));
-                
-                // Aplicar delay individual a cada imagen
-                progress = progress - delayFactor;
-                
-                // Clampear entre 0 y 1
-                progress = Math.max(0, Math.min(1, progress));
-                
-                // Aplicar curva de aceleración más suave y natural
-                // Usa una curva ease-out suave para movimiento más fluido
-                progress = 1 - Math.pow(1 - progress, 3);
-                
-                // Calcular transformación basada en el progreso
-                // Distancia más corta para movimiento más sutil
-                const maxDistance = 60; // Reducido de 120 a 60 para movimiento más limpio
-                const currentDistance = maxDistance * (1 - progress);
-                
-                // La opacidad empieza en 0.3 para transición más suave
-                const minOpacity = 0.3;
-                const opacity = minOpacity + (progress * (1 - minOpacity));
-                
-                // Aplicar transformación y opacidad de forma suave
-                element.style.opacity = opacity.toString();
-                element.style.transform = `translateY(${currentDistance}px)`;
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Conectar Lenis con GSAP ScrollTrigger para que no entren en conflicto
+        const sharedLenis = globalThis['__lenis'];
+
+        if (sharedLenis && typeof sharedLenis.on === 'function') {
+            sharedLenis.on('scroll', ScrollTrigger.update);
+        } else {
+            const lenis = new Lenis();
+            globalThis['__lenis'] = lenis;
+            lenis.on('scroll', ScrollTrigger.update);
+            gsap.ticker.add((time) => {
+                lenis.raf(time * 1000);
             });
+            gsap.ticker.lagSmoothing(0);
         }
-        
-        // Ejecutar al hacer scroll con optimización
-        let ticking = false;
-        window.addEventListener('scroll', () => {
-            if (!ticking) {
-                window.requestAnimationFrame(() => {
-                    updateCollageAnimations();
-                    ticking = false;
-                });
-                ticking = true;
+
+        // ==================== GSAP SCROLLTRIGGER PARA COLLAGE ====================
+        const collageItems = gsap.utils.toArray('.collage-item');
+        const scrubValue = 1.2;
+        const yDistance = 85;
+        const scaleStart = 0.92;
+        const startBase = 80;
+        const endPoint = 'bottom 30%';
+        const staggerOffset = 4;
+
+        collageItems.forEach((item) => {
+            if (!(item instanceof HTMLElement)) {
+                return;
             }
+
+            const delayMs = Number.parseInt(item.dataset.delay || '0', 10);
+            const delaySteps = Math.round(delayMs / 100);
+            const startOffset = Math.max(35, startBase - (delaySteps * staggerOffset));
+
+            gsap.fromTo(
+                item,
+                {
+                    opacity: 0,
+                    y: yDistance,
+                    scale: scaleStart
+                },
+                {
+                    opacity: 1,
+                    y: 0,
+                    scale: 1,
+                    ease: 'power2.out',
+                    scrollTrigger: {
+                        trigger: item,
+                        start: `top ${startOffset}%`,
+                        end: endPoint,
+                        scrub: scrubValue
+                    }
+                }
+            );
         });
-        
-        // Ejecutar una vez al cargar para estado inicial
-        updateCollageAnimations();
 
         // ==================== ANIMACIÓN TRADICIONAL PARA OTROS ELEMENTOS ====================
         const observerOptions = {
