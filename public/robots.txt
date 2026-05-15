@@ -7,4 +7,5 @@ Disallow: /admin/
 Disallow: /_astro/
 
 # Sitemap
-Sitemap: https://forzabox.com/sitemap-index.xml
+Sitemap: https://forzabox.vercel.app/sitemap-index.xml
+
